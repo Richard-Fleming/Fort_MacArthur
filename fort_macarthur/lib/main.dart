@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
+import 'aboutus.dart';
 import 'dart:async';
 import 'size_config.dart';
 
@@ -21,7 +22,7 @@ class _SplashState extends State<_SplashScreen> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => AboutUsPage()),
         );
       },
     );
