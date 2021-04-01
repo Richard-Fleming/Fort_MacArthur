@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/flutter_device_type.dart';
+import 'package:fort_macarthur/device.dart';
 import 'homepage.dart';
 import 'dart:async';
-import 'flutter_device_type.dart';
+import 'device.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),

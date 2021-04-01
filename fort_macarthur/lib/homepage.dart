@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'flutter_device_type.dart';
-import 'size_constraints.dart';
+import 'device.dart';
+import 'sizeConstraints.dart';
 
 class HomePage extends StatefulWidget {
   @override
