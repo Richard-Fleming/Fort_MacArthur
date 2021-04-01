@@ -1,8 +1,7 @@
+import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'dart:math' as Math;
-
-import 'package:flutter/cupertino.dart';
 
 class Device {
   static double devicePixelRatio = ui.window.devicePixelRatio;
@@ -20,7 +19,9 @@ class Device {
   static double _safeAreaVertical = 0.0; // ^^ i.e. our positional space
   static double safeBlockHorizontal = 0.0; // Our positions in that space
   static double safeBlockVertical = 0.0;
-  static const Color backroundCOLOR = Color(0xffc5c0ad);
+
+  static const Color backroundCOLOR =
+      Color(0xffc5c0ad); // currently grey but liable to change
 
   Device(
       {required this.isTablet,
@@ -111,7 +112,7 @@ class Device {
         hasNotch: hasNotch);
   }
 
-  void init() {
+  static void init() {
     final padding = ui.window.viewPadding;
     _safeAreaHorizontal = padding.left + padding.right;
     _safeAreaVertical = padding.top + padding.bottom;

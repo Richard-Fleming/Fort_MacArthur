@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fort_macarthur/flutter_device_type.dart';
 import 'homepage.dart';
 import 'dart:async';
-import 'size_config.dart';
-import 'size_config.dart';
+import 'flutter_device_type.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),
@@ -31,7 +30,7 @@ class _SplashState extends State<_SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Device.init();
     return Scaffold(
       backgroundColor: Device.backroundCOLOR,
       body: Center(
