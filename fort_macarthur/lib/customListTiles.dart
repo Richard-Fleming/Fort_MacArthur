@@ -5,9 +5,9 @@ import 'size_config.dart';
 class CustomListTiles extends StatelessWidget {
   final IconData icon;
   final String tabName;
-  final Function onTap;
+  final Function action;
 
-  CustomListTiles(this.icon, this.tabName, this.onTap);
+  CustomListTiles(this.icon, this.tabName, this.action);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,9 @@ class CustomListTiles extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
       child: InkWell(
         splashColor: SizeConfig.backroundCOLOR,
-        onTap: () => {},
+        onTap: () {
+          action();
+        },
         child: Container(
           height: 40,
           child: Row(

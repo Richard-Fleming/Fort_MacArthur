@@ -27,6 +27,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )
                 ]))),
-        drawer: CustomDrawer('Fort MacArther', "assets/logo/logo.png"));
+        drawer: new CustomDrawer('Fort MacArther', 0));
   }
 }
