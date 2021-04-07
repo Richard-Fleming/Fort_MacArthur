@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'size_config.dart';
+import 'device.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class _TestState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: SizeConfig.backroundCOLOR,
+      backgroundColor: Device.backroundCOLOR,
       body: SafeArea(
           child: Container(
               padding: EdgeInsets.all(20.0),

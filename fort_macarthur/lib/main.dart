@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'size_config.dart';
 import 'viewpage.dart';
+import 'package:fort_macarthur/device.dart';
+import 'device.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),
@@ -29,9 +30,9 @@ class _SplashState extends State<_SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Device.init();
     return Scaffold(
-      backgroundColor: SizeConfig.backroundCOLOR,
+      backgroundColor: Device.backroundCOLOR,
       body: Center(
         child: Image.asset('assets/logo/logo.png'),
       ),

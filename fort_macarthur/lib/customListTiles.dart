@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'size_config.dart';
+import 'device.dart';
 
 class CustomListTiles extends StatelessWidget {
   final IconData icon;
@@ -14,7 +14,7 @@ class CustomListTiles extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
       child: InkWell(
-        splashColor: SizeConfig.backroundCOLOR,
+        splashColor: Device.backroundCOLOR,
         onTap: () {
           action();
         },
