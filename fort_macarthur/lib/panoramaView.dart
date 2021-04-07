@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:panorama/panorama.dart';
+import 'package:fort_macarthur/post_history.dart';
 
 class PanoView extends StatelessWidget {
   final String title;
@@ -25,7 +26,10 @@ class PanoView extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PostHistoryView()));
+              },
               icon: Icon(Icons.collections_bookmark),
               label: Text(title + " Collection"),
             ),
