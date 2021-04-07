@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/customDrawer.dart';
 import 'size_config.dart';
 
 class TestPage extends StatefulWidget {
@@ -11,8 +10,6 @@ class _TestState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: new CustomDrawer('aaa', 1),
-      appBar: AppBar(title: Text("Test page")),
       backgroundColor: SizeConfig.backroundCOLOR,
       body: SafeArea(
           child: Container(
@@ -26,6 +23,10 @@ class _TestState extends State<TestPage> {
                         image: AssetImage("assets/logo/logo.png"),
                         fit: BoxFit.contain),
                   ),
+                ),
+                Text(
+                  "Test",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 )
               ]))),
     );

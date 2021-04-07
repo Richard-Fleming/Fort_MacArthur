@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'size_config.dart';
-import 'customDrawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,7 +10,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("home")),
         backgroundColor: SizeConfig.backroundCOLOR,
         body: SafeArea(
             child: Container(
@@ -25,8 +23,10 @@ class _HomePageState extends State<HomePage> {
                           image: AssetImage("assets/logo/logo.png"),
                           fit: BoxFit.contain),
                     ),
-                  )
-                ]))),
-        drawer: new CustomDrawer('Fort MacArther', 0));
+                  ),
+                  Text("Home",
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.w600))
+                ]))));
   }
 }

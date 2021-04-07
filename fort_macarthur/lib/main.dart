@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'homepage.dart';
 import 'dart:async';
 import 'size_config.dart';
+import 'viewpage.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),
@@ -21,7 +21,7 @@ class _SplashState extends State<_SplashScreen> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => Viewpage()),
         );
       },
     );

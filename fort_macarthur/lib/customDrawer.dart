@@ -1,18 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/homepage.dart';
-import 'testpage.dart';
 import 'customListTiles.dart';
 
-class PageRoutes {
-  static const String home = '/homepage';
-  static const String test = '/testpage';
-}
-
 class CustomDrawer extends StatelessWidget {
-  final String title;
-  final int currentPage;
-  CustomDrawer(this.title, this.currentPage);
+  final Function action;
+
+  CustomDrawer(this.action);
 
   @override
   Widget build(BuildContext context) {
@@ -38,39 +31,25 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.all(4.0),
-                    child: Text(title,
+                    child: Text("test",
                         style: TextStyle(color: Colors.white, fontSize: 20.0)),
                   )
                 ],
               ),
             ),
           ),
+          //add your page to the list
           CustomListTiles(
               Icons.home,
               'Home',
-              () => {
-                    if (currentPage != 0)
-                      {
-                        Navigator.pushReplacement(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) => new HomePage()))
-                      }
-                  }),
+              () => action(
+                    context,
+                    0,
+                  )),
+          CustomListTiles(Icons.article, 'Articles', () => action(context, 1)),
           CustomListTiles(
-              Icons.article,
-              'Articles',
-              () => {
-                    if (currentPage != 1)
-                      {
-                        Navigator.pushReplacement(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) => new TestPage()))
-                      }
-                  }),
-          CustomListTiles(Icons.tour, 'Virtual Tours', () => {}),
-          CustomListTiles(Icons.bookmarks, 'About us', () => {})
+              Icons.tour, 'Virtual Tours', () => action(context, 2)),
+          CustomListTiles(Icons.bookmarks, 'About us', () => action(context, 3))
         ],
       ),
     );
