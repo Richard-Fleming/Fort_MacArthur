@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'size_config.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:auto_size_text/auto_size_text.dart';
 
 class AboutUsPage extends StatefulWidget {
   @override
@@ -33,7 +35,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   ),
                   child: IntrinsicHeight(
                       child: Container(
-                    height: MediaQuery.of(context).size.height,
+                    height: 365.0,
                     decoration: BoxDecoration(
                       borderRadius:
                           BorderRadius.circular(SizeConfig.borderRADIUS),
@@ -94,12 +96,13 @@ class _AboutUsPageState extends State<AboutUsPage> {
   createText(text, padding, fontSize, fontWeight) {
     return Padding(
         padding: EdgeInsets.all(padding),
-        child: Text(
-          text,
-          style: TextStyle(
-              color: Colors.black, fontSize: fontSize, fontWeight: fontWeight),
-          textAlign: TextAlign.center,
-        ));
+        child: AutoSizeText(text,
+            maxLines: 30,
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: fontSize,
+                fontWeight: fontWeight),
+            textAlign: TextAlign.center));
   }
 
 // Creates an image with an optional circular borderRadius
