@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/device.dart';
-import 'homepage.dart';
 import 'dart:async';
+import 'viewpage.dart';
+import 'package:fort_macarthur/device.dart';
 import 'device.dart';
 
 void main() => runApp(MaterialApp(
@@ -22,7 +22,7 @@ class _SplashState extends State<_SplashScreen> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => Viewpage()),
         );
       },
     );
