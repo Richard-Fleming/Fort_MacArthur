@@ -49,7 +49,10 @@ class CustomDrawer extends StatelessWidget {
           CustomListTiles(Icons.article, 'Articles', () => action(context, 1)),
           CustomListTiles(
               Icons.tour, 'Virtual Tours', () => action(context, 2)),
-          CustomListTiles(Icons.bookmarks, 'About us', () => action(context, 3))
+          CustomListTiles(
+              Icons.bookmarks, 'About us', () => action(context, 3)),
+          CustomListTiles(Icons.cast_for_education, 'Get Educated',
+              () => action(context, 4))
         ],
       ),
     );
