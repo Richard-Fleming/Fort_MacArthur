@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fort_macarthur/sizeConstraints.dart';
 
 class InfoBox extends StatelessWidget {
   final Color color;
@@ -24,7 +25,7 @@ class InfoBox extends StatelessWidget {
               offset: Offset(0, 3),
             )
           ],
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(SizeConstraint.borderRadius),
           color: color,
         ),
         child: Column(
@@ -35,6 +36,7 @@ class InfoBox extends StatelessWidget {
               child: Icon(
                 iconData!,
                 size: 50,
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -42,7 +44,7 @@ class InfoBox extends StatelessWidget {
             ),
             Text(
               label!,
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15, color: Colors.white),
             ),
           ],
         ),

@@ -27,8 +27,12 @@ class PanoView extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: ElevatedButton.icon(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PostHistoryView()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PostHistoryView(
+                              title: title,
+                            )));
               },
               icon: Icon(Icons.collections_bookmark),
               label: Text(title + " Collection"),

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/panoramaView.dart';
+import 'package:fort_macarthur/device.dart';
 
-class VirtualTours extends StatelessWidget {
+class VirtualTours extends StatefulWidget {
+  @override
+  _VirtualToursState createState() => _VirtualToursState();
+}
+
+class _VirtualToursState extends State<VirtualTours> {
   final List<PanoData> batteryData = [
     PanoData(title: "Osgood", panoPath: "assets/images/osgood_pano.jpg"),
     PanoData(title: "Farley", panoPath: "assets/images/farley_pano.jpg")
@@ -10,9 +16,7 @@ class VirtualTours extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Map Overview"),
-      ),
+      backgroundColor: Device.backroundCOLOR,
       body: Stack(
         alignment: Alignment.center,
         children: [

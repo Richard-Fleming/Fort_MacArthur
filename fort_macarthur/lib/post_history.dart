@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/info_box.dart';
+import 'package:fort_macarthur/device.dart';
 
 class PostHistoryView extends StatelessWidget {
+  final String title;
+
+  PostHistoryView({Key? key, required this.title}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Device.backroundCOLOR,
       appBar: AppBar(
-        title: Text("Battery test"),
+        title: Text(title + " Battery"),
       ),
       body: Column(
         children: [
@@ -15,7 +21,7 @@ class PostHistoryView extends StatelessWidget {
             height: 10,
           ),
           Text(
-            "Battery Test",
+            title + " Battery",
             style: TextStyle(
               fontSize: 20,
             ),
@@ -29,22 +35,22 @@ class PostHistoryView extends StatelessWidget {
                 crossAxisCount: 3,
                 children: [
                   InfoBox(
-                    color: Colors.deepPurple,
+                    color: Colors.brown.shade300,
                     iconData: Icons.article_outlined,
                     label: "History",
                   ),
                   InfoBox(
-                    color: Colors.deepPurple,
+                    color: Colors.brown.shade300,
                     iconData: Icons.analytics_outlined,
                     label: "Details",
                   ),
                   InfoBox(
-                    color: Colors.deepPurple,
+                    color: Colors.brown.shade300,
                     iconData: Icons.photo,
                     label: "Slideshow",
                   ),
                   InfoBox(
-                    color: Colors.deepPurple,
+                    color: Colors.brown.shade300,
                     iconData: Icons.military_tech,
                     label: "Artifacts",
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/virtual_tours.dart';
 import 'dart:async';
 import 'viewpage.dart';
 import 'package:fort_macarthur/device.dart';
