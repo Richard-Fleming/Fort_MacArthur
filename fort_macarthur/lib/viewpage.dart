@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'testpage.dart';
+import 'filmLocation.dart';
 import 'customDrawer.dart';
 
 class Viewpage extends StatefulWidget {
@@ -10,8 +11,13 @@ class Viewpage extends StatefulWidget {
 
 class _ViewPageState extends State<Viewpage> {
   int index = 0;
-  List<String> titleBar = ["Home", "Test"];
-  List<Widget> pagelist = [HomePage(), TestPage()]; // add your pages here
+  List<String> titleBar = ["Home", "Test", "Test", "Film Location"];
+  List<Widget> pagelist = [
+    HomePage(),
+    TestPage(),
+    TestPage(),
+    FilmLocation(),
+  ]; // add your pages here
 
   @override
   Widget build(BuildContext content) {
