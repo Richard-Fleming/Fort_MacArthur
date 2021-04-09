@@ -42,6 +42,36 @@ class _FilmLocationState extends State<FilmLocation> {
                   EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 0.0),
                   16.0,
                   FontWeight.normal),
+              Divider(height: 12.5, thickness: 2.5, color: Colors.black),
+              Divider(height: 15.5),
+              createDouble(
+                  "assets/images/view_west_from_top_of_battery.jpg",
+                  "assets/images/view_east_from_top_of_battery_to_farley_pit.jpg",
+                  EdgeInsets.zero),
+              Divider(height: 12.5),
+              createDouble(
+                  "assets/images/view_south_over_field_of_catalina.jpg",
+                  "assets/images/view_north_looking_into_battery_courtyard.jpg",
+                  EdgeInsets.zero),
+              Divider(height: 12.5),
+              createDouble(
+                  "assets/images/walkway_with_view_into_courtyard.jpg",
+                  "assets/images/walkway_towards_stairs_and_access_road.jpg",
+                  EdgeInsets.zero),
+              Divider(height: 12.5),
+              createDouble(
+                  "assets/images/battery_osgood_commander_station_exterior.jpg",
+                  "assets/images/plotting_room_door_in_courtyard.jpg",
+                  EdgeInsets.zero),
+              Divider(height: 12.5),
+              createDouble("assets/images/1943_willies_jeep.jpg",
+                  "assets/images/1941_dodge_command_car.jpg", EdgeInsets.zero),
+              Divider(height: 12.5),
+              createDouble(
+                  "assets/images/1918_dodge_brothers_truck.jpg",
+                  "assets/images/1918_dodge_brothers_truck2.jpg",
+                  EdgeInsets.zero),
+              Divider(height: 12.5),
             ])));
   }
 }
@@ -55,4 +85,29 @@ createText(text, padding, fontSize, fontWeight) {
           style: TextStyle(
               color: Colors.black, fontSize: fontSize, fontWeight: fontWeight),
           textAlign: TextAlign.center));
+}
+
+createDouble(firstImage, secondImage, padding) {
+  return Container(
+      height: 145.0,
+      padding: padding,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 4,
+                ),
+              ),
+              child: Image.asset(firstImage)),
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 4,
+                ),
+              ),
+              child: Image.asset(secondImage)),
+        ],
+      ));
 }
