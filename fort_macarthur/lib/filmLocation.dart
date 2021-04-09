@@ -44,33 +44,49 @@ class _FilmLocationState extends State<FilmLocation> {
                   FontWeight.normal),
               Divider(height: 12.5, thickness: 2.5, color: Colors.black),
               Divider(height: 15.5),
-              createDouble(
+              createDoubleImage(
                   "assets/images/view_west_from_top_of_battery.jpg",
                   "assets/images/view_east_from_top_of_battery_to_farley_pit.jpg",
                   EdgeInsets.zero),
+              createDoubleText(
+                  "View West from\nTop of Battery",
+                  "View East from Top\nof Battery to Farley Pit",
+                  EdgeInsets.zero),
               Divider(height: 12.5),
-              createDouble(
+              createDoubleImage(
                   "assets/images/view_south_over_field_of_catalina.jpg",
                   "assets/images/view_north_looking_into_battery_courtyard.jpg",
                   EdgeInsets.zero),
+              createDoubleText(
+                  "View South over\nfield to Catalina",
+                  "View North, looking\ninto Battery Courtyard",
+                  EdgeInsets.zero),
               Divider(height: 12.5),
-              createDouble(
+              createDoubleImage(
                   "assets/images/walkway_with_view_into_courtyard.jpg",
                   "assets/images/walkway_towards_stairs_and_access_road.jpg",
                   EdgeInsets.zero),
+              createDoubleText("Walkway with view\ninto Courtyard",
+                  "Walkway towards Stairs\nand access road", EdgeInsets.zero),
               Divider(height: 12.5),
-              createDouble(
+              createDoubleImage(
                   "assets/images/battery_osgood_commander_station_exterior.jpg",
                   "assets/images/plotting_room_door_in_courtyard.jpg",
                   EdgeInsets.zero),
+              createDoubleText("Battery Osgood Commander\nStation Exterior",
+                  "Plotting Room door\nin Courtyard", EdgeInsets.zero),
               Divider(height: 12.5),
-              createDouble("assets/images/1943_willies_jeep.jpg",
+              createDoubleImage("assets/images/1943_willies_jeep.jpg",
                   "assets/images/1941_dodge_command_car.jpg", EdgeInsets.zero),
+              createDoubleText("1943 Willies Jeep", "1941 Dodge Command Car",
+                  EdgeInsets.zero),
               Divider(height: 12.5),
-              createDouble(
+              createDoubleImage(
                   "assets/images/1918_dodge_brothers_truck.jpg",
                   "assets/images/1918_dodge_brothers_truck2.jpg",
                   EdgeInsets.zero),
+              createDoubleText("1918 Dodge Brothers Truck",
+                  "1918 Dodge Brothers Truck", EdgeInsets.zero),
               Divider(height: 12.5),
             ])));
   }
@@ -87,7 +103,7 @@ createText(text, padding, fontSize, fontWeight) {
           textAlign: TextAlign.center));
 }
 
-createDouble(firstImage, secondImage, padding) {
+createDoubleImage(firstImage, secondImage, padding) {
   return Container(
       height: 145.0,
       padding: padding,
@@ -108,6 +124,19 @@ createDouble(firstImage, secondImage, padding) {
                 ),
               ),
               child: Image.asset(secondImage)),
+        ],
+      ));
+}
+
+createDoubleText(firstString, secondString, padding) {
+  return Container(
+      height: 40.0,
+      padding: padding,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          createText(firstString, padding, 14.0, FontWeight.w400),
+          createText(secondString, padding, 14.0, FontWeight.w400),
         ],
       ));
 }
