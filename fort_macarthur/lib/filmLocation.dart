@@ -11,6 +11,9 @@ class FilmLocation extends StatefulWidget {
 }
 
 class _FilmLocationState extends State<FilmLocation> {
+  late double height;
+  late double width;
+
   @override
   void initState() {
     super.initState();
@@ -19,6 +22,8 @@ class _FilmLocationState extends State<FilmLocation> {
   @override
   Widget build(BuildContext context) {
     Device.init();
+    this.height = MediaQuery.of(context).size.height;
+    this.width = MediaQuery.of(context).size.width;
 
     return Scaffold(
         backgroundColor: Device.backroundCOLOR,
@@ -44,51 +49,113 @@ class _FilmLocationState extends State<FilmLocation> {
                   FontWeight.normal),
               Divider(height: 12.5, thickness: 2.5, color: Colors.black),
               Divider(height: 15.5),
-              createDoubleImage(
+              createDouble(
                   "assets/images/view_west_from_top_of_battery.jpg",
+                  "View West from Top of Battery",
+                  () {
+                    print('Card tapped 1.');
+                  },
                   "assets/images/view_east_from_top_of_battery_to_farley_pit.jpg",
-                  EdgeInsets.zero),
-              createDoubleText(
-                  "View West from\nTop of Battery",
                   "View East from Top\nof Battery to Farley Pit",
-                  EdgeInsets.zero),
+                  () {
+                    print('Card tapped 2.');
+                  }),
               Divider(height: 12.5),
-              createDoubleImage(
+              createDouble(
                   "assets/images/view_south_over_field_of_catalina.jpg",
-                  "assets/images/view_north_looking_into_battery_courtyard.jpg",
-                  EdgeInsets.zero),
-              createDoubleText(
                   "View South over\nfield to Catalina",
+                  () {
+                    print('Card tapped 3.');
+                  },
+                  "assets/images/view_north_looking_into_battery_courtyard.jpg",
                   "View North, looking\ninto Battery Courtyard",
-                  EdgeInsets.zero),
+                  () {
+                    print('Card tapped 4.');
+                  }),
               Divider(height: 12.5),
-              createDoubleImage(
+              createDouble(
                   "assets/images/walkway_with_view_into_courtyard.jpg",
+                  "Walkway with view into Courtyard",
+                  () {
+                    print('Card tapped 5.');
+                  },
                   "assets/images/walkway_towards_stairs_and_access_road.jpg",
-                  EdgeInsets.zero),
-              createDoubleText("Walkway with view\ninto Courtyard",
-                  "Walkway towards Stairs\nand access road", EdgeInsets.zero),
+                  "Walkway towards Stairs and access road",
+                  () {
+                    print('Card tapped 6.');
+                  }),
               Divider(height: 12.5),
-              createDoubleImage(
+              createDouble(
                   "assets/images/battery_osgood_commander_station_exterior.jpg",
+                  "Battery Osgood Commander Station Exterior",
+                  () {
+                    print('Card tapped 7.');
+                  },
                   "assets/images/plotting_room_door_in_courtyard.jpg",
-                  EdgeInsets.zero),
-              createDoubleText("Battery Osgood Commander\nStation Exterior",
-                  "Plotting Room door\nin Courtyard", EdgeInsets.zero),
+                  "Plotting Room door in Courtyard",
+                  () {
+                    print('Card tapped 8.');
+                  }),
               Divider(height: 12.5),
-              createDoubleImage("assets/images/1943_willies_jeep.jpg",
-                  "assets/images/1941_dodge_command_car.jpg", EdgeInsets.zero),
-              createDoubleText("1943 Willies Jeep", "1941 Dodge Command Car",
-                  EdgeInsets.zero),
+              createDouble(
+                  "assets/images/1943_willies_jeep.jpg",
+                  "1943 Willies Jeep",
+                  () {
+                    print('Card tapped 9.');
+                  },
+                  "assets/images/1941_dodge_command_car.jpg",
+                  "View North, looking\ninto Battery Courtyard",
+                  () {
+                    print('Card tapped 10.');
+                  }),
               Divider(height: 12.5),
-              createDoubleImage(
+              createDouble(
                   "assets/images/1918_dodge_brothers_truck.jpg",
+                  "1918 Dodge Brothers Truck",
+                  () {
+                    print('Card tapped 11.');
+                  },
                   "assets/images/1918_dodge_brothers_truck2.jpg",
-                  EdgeInsets.zero),
-              createDoubleText("1918 Dodge Brothers Truck",
-                  "1918 Dodge Brothers Truck", EdgeInsets.zero),
+                  "1918 Dodge Brothers Truck",
+                  () {
+                    print('Card tapped 12.');
+                  }),
               Divider(height: 12.5),
             ])));
+  }
+
+  createCard(image, description, function) {
+    return Container(
+        width: width / 2.0,
+        height: 175.0,
+        child: Card(
+          child: InkWell(
+            splashColor: Colors.blue.withAlpha(30),
+            onTap: function,
+            child: Column(
+              children: [
+                Image.asset(image, width: 185, height: 130),
+                Container(
+                  height: 30,
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    description,
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
+  }
+
+  createDouble(imageOne, descOne, functionOne, imageTwo, descTwo, functionTwo) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          createCard(imageOne, descOne, functionOne),
+          createCard(imageTwo, descTwo, functionTwo),
+        ]);
   }
 }
 
