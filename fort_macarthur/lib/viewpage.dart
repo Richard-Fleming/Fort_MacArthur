@@ -3,6 +3,7 @@ import 'package:fort_macarthur/educationpage.dart';
 import 'homepage.dart';
 import 'testpage.dart';
 import 'customDrawer.dart';
+import 'package:fort_macarthur/virtual_tours.dart';
 
 class Viewpage extends StatefulWidget {
   @override
@@ -11,12 +12,13 @@ class Viewpage extends StatefulWidget {
 
 class _ViewPageState extends State<Viewpage> {
   int index = 0;
-  List<String> titleBar = ["Home", "Test", "Test", "Test", "Get Educated"];
+  List<String> titleBar = ["Home", "Test", "Virtual Tours", "Test", "Get Educated"];
   List<Widget> pagelist = [
     HomePage(),
     TestPage(),
     TestPage(),
     TestPage(),
+	VirtualTours(),
     EducationPage()
   ]; // add your pages here
 
