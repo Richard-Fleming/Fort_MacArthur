@@ -1,35 +1,33 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'device.dart';
 import 'sizeConstraints.dart';
+import 'customCards.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
+List<String> imgist = [];
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Device.backroundCOLOR,
-        body: SafeArea(
-            child: Container(
-                padding: EdgeInsets.all(SizeConstraint.edgeInsets),
-                child: Column(children: <Widget>[
-                  Container(
-                    height: Device.safeBlockVertical * 50,
-                    width: Device.safeBlockHorizontal * 100,
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(SizeConstraint.borderRadius),
-                      image: DecorationImage(
-                          image: AssetImage("assets/logo/logo.png"),
-                          fit: BoxFit.contain),
-                    ),
-                  ),
-                  Text("Home",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w600))
-                ]))));
+        body: SingleChildScrollView(
+            child: SafeArea(
+                child: Container(
+          padding: EdgeInsets.all(SizeConstraint.edgeInsets),
+          child: Column(children: <Widget>[
+            CustomCards(
+              "About us!",
+              "Our Museum",
+              "assets/images/frontpage.jpg",
+              'The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur...',
+            )
+          ]),
+        ))));
   }
 }
