@@ -25,6 +25,27 @@ class _ProjectsPageState extends State<ProjectsPage> {
         title: "Bolsa Chica Beach Panama Mounts", desc: "testing some more")
   ];
 
+  final List<ProjectData> restorationData = [
+    ProjectData(
+        title: "60 inch General Electric Searchlight Project", desc: "testing"),
+    ProjectData(
+        title: "Time-Interval Bell for the Gun Pit", desc: "testing some more"),
+    ProjectData(
+        title: "60 inch Sperry Searchlight Project", desc: "testing some more"),
+    ProjectData(
+        title: "Battery Window Replacement Project", desc: "testing some more"),
+  ];
+
+  final List<ProjectData> wishlistData = [
+    ProjectData(title: "Infrastructure Improvement", desc: "testing"),
+    ProjectData(title: "Restoration Shop Tools", desc: "testing some more"),
+    ProjectData(title: "Archival Supplies", desc: "testing some more"),
+    ProjectData(title: "Office Equipment", desc: "testing some more"),
+    ProjectData(
+        title: "Motor Vehicles and Transportation", desc: "testing some more"),
+    ProjectData(title: "Special Event Supplies", desc: "testing some more"),
+  ];
+
   Color _textColor = Colors.black;
 
   @override
@@ -80,7 +101,42 @@ class _ProjectsPageState extends State<ProjectsPage> {
             alignment: Alignment.topCenter,
           ),
           Column(
-            children: preservationData
+            children: restorationData
+                .map((data) => ListTileTheme(
+                      tileColor: Colors.brown.shade300,
+                      child: ExpansionTile(
+                        onExpansionChanged: (expanded) {
+                          expanded
+                              ? _textColor = Colors.black
+                              : _textColor = Colors.black;
+                        },
+                        trailing: Icon(
+                          Icons.expand_more,
+                          color: _textColor,
+                        ),
+                        title: Text(
+                          data.title,
+                          style: TextStyle(
+                            color: _textColor,
+                          ),
+                        ),
+                        children: [Text(data.desc)],
+                      ),
+                    ))
+                .toList(),
+          ),
+          Align(
+            child: Container(
+              child: Text(
+                "Wishlist",
+                style: TextStyle(fontSize: 20),
+              ),
+              margin: EdgeInsets.symmetric(vertical: SizeConstraint.edgeInsets),
+            ),
+            alignment: Alignment.topCenter,
+          ),
+          Column(
+            children: wishlistData
                 .map((data) => ListTileTheme(
                       tileColor: Colors.brown.shade300,
                       child: ExpansionTile(
