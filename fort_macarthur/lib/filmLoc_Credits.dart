@@ -52,6 +52,7 @@ class _FilmLocCreditsState extends State<FilmLocCredits> {
           Container(height: linkSpacing),
           createLink(
               "Crash", "http://youtu.be/f1yXXGXhdkg", 20.0, FontWeight.normal),
+          Container(height: linkSpacing),
           createLink("The Usual Suspects", "http://youtu.be/9MjV4EwR7Mg", 20.0,
               FontWeight.normal),
           Container(height: linkSpacing),
@@ -60,6 +61,7 @@ class _FilmLocCreditsState extends State<FilmLocCredits> {
           Container(height: linkSpacing),
           createLink(
               "Midway", "http://youtu.be/PJmw4xN3H6Q", 20.0, FontWeight.normal),
+          Container(height: linkSpacing),
           createLink("Tora! Tora! Tora!", "http://youtu.be/I56EnecvVZU", 20.0,
               FontWeight.normal),
           Container(height: linkSpacing),
