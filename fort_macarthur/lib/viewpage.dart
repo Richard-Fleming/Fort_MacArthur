@@ -24,8 +24,8 @@ class _ViewPageState extends State<Viewpage> {
     HomePage(),
     TestPage(),
     VirtualTours(),
-    FilmLocation(),
-    ProjectsPage()
+    ProjectsPage(),
+    FilmLocation()
   ]; // add your pages here
 
   @override
