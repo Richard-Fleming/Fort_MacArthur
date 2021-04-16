@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/device.dart';
 import 'device.dart';
+import 'filmLoc_Credits.dart';
 
 class FilmLocation extends StatefulWidget {
   @override
@@ -26,9 +27,8 @@ class _FilmLocationState extends State<FilmLocation> {
                 icon: Icon(Icons.info),
                 label: Text("Some of our Credits",
                     style: TextStyle(fontSize: 20.0)),
-                onPressed: () {
-                  goToProductions();
-                },
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FilmLocCredits())),
               ),
               ElevatedButton.icon(
                 icon: Icon(Icons.info),
