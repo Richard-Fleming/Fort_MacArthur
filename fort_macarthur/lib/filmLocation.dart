@@ -22,6 +22,22 @@ class _FilmLocationState extends State<FilmLocation> {
         body: Container(
             alignment: Alignment.center,
             child: ListView(children: <Widget>[
+              ElevatedButton.icon(
+                icon: Icon(Icons.info),
+                label: Text("Some of our Credits",
+                    style: TextStyle(fontSize: 20.0)),
+                onPressed: () {
+                  goToProductions();
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.info),
+                label: Text("Available For Productions",
+                    style: TextStyle(fontSize: 20.0)),
+                onPressed: () {
+                  goToProductions();
+                },
+              ),
               createText(
                   "\nFilm, Television and Photography at the Fort MacArthur Museum\n",
                   EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 0.0),
@@ -131,6 +147,52 @@ class _FilmLocationState extends State<FilmLocation> {
                 ))));
   }
 
+  goToProductions() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Scaffold(
+                backgroundColor: Device.backroundCOLOR,
+                appBar: AppBar(
+                  backgroundColor: Colors.lightGreen[900]!,
+                  title: Text(
+                    "Available For Productions",
+                    style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Futura"),
+                  ),
+                ),
+                body: ListView(children: [
+                  Text(
+                    " Vehicles:\n" +
+                        "1918 FWD Cargo Truck\n"
+                            "1918 Dodge Brothers Repair Truck\n"
+                            "1941 1/2 Ton Command Car\n"
+                            "1941 1/2 Ton Ambulance\n"
+                            "1941 1/2 Ton Pickup Truck\n"
+                            "1942 GE 60-inch Searchlight\n"
+                            "1942 Sperry 60-inch Searchlight\n"
+                            "1942 Bofors M1 40mm Mobile AA Gun\n"
+                            "1943 3/4 Ton Command Car\n"
+                            "1943 Willies Jeep\n"
+                            "1944 Deuce and a Half\n"
+                            "1945 M16A2 Half Track with Quad 50\n\n\n"
+                            "Uniforms & Accessories:\n"
+                            "Uniforms\n"
+                            "Weapons\n"
+                            "Radios\n"
+                            "Tents\n"
+                            "Various Field Equipment\n",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Futura"),
+                  ),
+                ]))));
+  }
+
   createDouble(imageOne, descOne, imageTwo, descTwo) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -139,53 +201,16 @@ class _FilmLocationState extends State<FilmLocation> {
           createCard(imageTwo, descTwo),
         ]);
   }
-}
 
-// Creates a text element with padding
-createText(text, padding, fontSize, fontWeight) {
-  return Padding(
-      padding: padding,
-      child: SelectableText(text,
-          scrollPhysics: NeverScrollableScrollPhysics(),
-          style: TextStyle(
-              color: Colors.black, fontSize: fontSize, fontWeight: fontWeight),
-          textAlign: TextAlign.center));
-}
-
-createDoubleImage(firstImage, secondImage, padding) {
-  return Container(
-      height: 145.0,
-      padding: padding,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 4,
-                ),
-              ),
-              child: Image.asset(firstImage)),
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 4,
-                ),
-              ),
-              child: Image.asset(secondImage)),
-        ],
-      ));
-}
-
-createDoubleText(firstString, secondString, padding) {
-  return Container(
-      height: 40.0,
-      padding: padding,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          createText(firstString, padding, 14.0, FontWeight.w400),
-          createText(secondString, padding, 14.0, FontWeight.w400),
-        ],
-      ));
+  createText(text, padding, fontSize, fontWeight) {
+    return Padding(
+        padding: padding,
+        child: SelectableText(text,
+            scrollPhysics: NeverScrollableScrollPhysics(),
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: fontSize,
+                fontWeight: fontWeight),
+            textAlign: TextAlign.center));
+  }
 }
