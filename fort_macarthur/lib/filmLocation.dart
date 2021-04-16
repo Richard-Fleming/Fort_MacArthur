@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/sizeConstraints.dart';
-import 'dart:async';
-import 'viewpage.dart';
 import 'package:fort_macarthur/device.dart';
 import 'device.dart';
 
@@ -11,9 +8,6 @@ class FilmLocation extends StatefulWidget {
 }
 
 class _FilmLocationState extends State<FilmLocation> {
-  late double height;
-  late double width;
-
   @override
   void initState() {
     super.initState();
@@ -22,8 +16,6 @@ class _FilmLocationState extends State<FilmLocation> {
   @override
   Widget build(BuildContext context) {
     Device.init();
-    this.height = MediaQuery.of(context).size.height;
-    this.width = MediaQuery.of(context).size.width;
 
     return Scaffold(
         backgroundColor: Device.backroundCOLOR,
@@ -52,109 +44,99 @@ class _FilmLocationState extends State<FilmLocation> {
               createDouble(
                   "assets/images/view_west_from_top_of_battery.jpg",
                   "View West from Top of Battery",
-                  () {
-                    print('Card tapped 1.');
-                  },
                   "assets/images/view_east_from_top_of_battery_to_farley_pit.jpg",
-                  "View East from Top\nof Battery to Farley Pit",
-                  () {
-                    print('Card tapped 2.');
-                  }),
+                  "View East from Top\nof Battery to Farley Pit"),
               Divider(height: 12.5),
               createDouble(
                   "assets/images/view_south_over_field_of_catalina.jpg",
                   "View South over\nfield to Catalina",
-                  () {
-                    print('Card tapped 3.');
-                  },
                   "assets/images/view_north_looking_into_battery_courtyard.jpg",
-                  "View North, looking\ninto Battery Courtyard",
-                  () {
-                    print('Card tapped 4.');
-                  }),
+                  "View North, looking\ninto Battery Courtyard"),
               Divider(height: 12.5),
               createDouble(
                   "assets/images/walkway_with_view_into_courtyard.jpg",
                   "Walkway with view into Courtyard",
-                  () {
-                    print('Card tapped 5.');
-                  },
                   "assets/images/walkway_towards_stairs_and_access_road.jpg",
-                  "Walkway towards Stairs and access road",
-                  () {
-                    print('Card tapped 6.');
-                  }),
+                  "Walkway towards Stairs and access road"),
               Divider(height: 12.5),
               createDouble(
                   "assets/images/battery_osgood_commander_station_exterior.jpg",
                   "Battery Osgood Commander Station Exterior",
-                  () {
-                    print('Card tapped 7.');
-                  },
                   "assets/images/plotting_room_door_in_courtyard.jpg",
-                  "Plotting Room door in Courtyard",
-                  () {
-                    print('Card tapped 8.');
-                  }),
+                  "Plotting Room door in Courtyard"),
               Divider(height: 12.5),
               createDouble(
                   "assets/images/1943_willies_jeep.jpg",
                   "1943 Willies Jeep",
-                  () {
-                    print('Card tapped 9.');
-                  },
                   "assets/images/1941_dodge_command_car.jpg",
-                  "View North, looking\ninto Battery Courtyard",
-                  () {
-                    print('Card tapped 10.');
-                  }),
+                  "View North, looking\ninto Battery Courtyard"),
               Divider(height: 12.5),
               createDouble(
                   "assets/images/1918_dodge_brothers_truck.jpg",
                   "1918 Dodge Brothers Truck",
-                  () {
-                    print('Card tapped 11.');
-                  },
                   "assets/images/1918_dodge_brothers_truck2.jpg",
-                  "1918 Dodge Brothers Truck",
-                  () {
-                    print('Card tapped 12.');
-                  }),
+                  "1918 Dodge Brothers Truck"),
               Divider(height: 12.5),
             ])));
   }
 
-  createCard(image, description, function) {
+  createCard(image, description) {
     return Container(
-        width: width / 2.0,
-        height: 175.0,
+        width: Device.width / 5.3,
+        height: Device.height / 9.0,
         child: Card(
           child: InkWell(
             splashColor: Colors.blue.withAlpha(30),
-            onTap: function,
+            onTap: () {
+              createOverlay(image, description);
+            },
             child: Column(
               children: [
-                Image.asset(image, width: 185, height: 130),
-                Container(
-                  height: 30,
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    description,
-                    textAlign: TextAlign.center,
-                  ),
-                )
+                Image.asset(image, fit: BoxFit.fitWidth),
+                Text(
+                  description,
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),
         ));
   }
 
-  createDouble(imageOne, descOne, functionOne, imageTwo, descTwo, functionTwo) {
+  createOverlay(image, description) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Device.backroundCOLOR,
+                  title: Text(
+                    description!,
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Futura"),
+                  ),
+                ),
+                body: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    InteractiveViewer(
+                      constrained: false,
+                      minScale: 1.0,
+                      maxScale: 8.0,
+                      child: Image.asset(image!, scale: 0.3),
+                    ),
+                  ],
+                ))));
+  }
+
+  createDouble(imageOne, descOne, imageTwo, descTwo) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          createCard(imageOne, descOne, functionOne),
-          createCard(imageTwo, descTwo, functionTwo),
+          createCard(imageOne, descOne),
+          createCard(imageTwo, descTwo),
         ]);
   }
 }
