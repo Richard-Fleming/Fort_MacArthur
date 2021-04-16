@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'viewCard.dart';
+import 'sizeConstraints.dart';
 
 class CustomCards extends StatelessWidget {
   final String title;
   final String subtitle;
   final String imgSrc;
-  final String text;
+  final String desc;
 
-  CustomCards(this.title, this.subtitle, this.imgSrc, this.text);
+  CustomCards(this.title, this.subtitle, this.imgSrc, this.desc);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -25,9 +27,12 @@ class CustomCards extends StatelessWidget {
           ),
           Image.asset(imgSrc),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.fromLTRB(SizeConstraint.edgeInsets,
+                SizeConstraint.edgeInsets, SizeConstraint.edgeInsets, 0),
             child: Text(
-              text,
+              desc,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(color: Colors.black.withOpacity(0.8)),
             ),
           ),
@@ -35,7 +40,17 @@ class CustomCards extends StatelessWidget {
             alignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ViewCard(
+                                img: imgSrc,
+                                title: title,
+                                subtitle: subtitle,
+                                desc: desc,
+                              )));
+                },
                 child: const Text('View'),
               ),
             ],
