@@ -1,10 +1,5 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'homepage.dart';
-import 'aboutus.dart';
-=======
->>>>>>> master
 import 'dart:async';
 import 'viewpage.dart';
 import 'package:fort_macarthur/device.dart';
