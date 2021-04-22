@@ -15,19 +15,11 @@ class InfoBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              blurRadius: 7,
-              spreadRadius: 2,
-              offset: Offset(0, 3),
-            )
-          ],
-          borderRadius: BorderRadius.circular(SizeConstraint.borderRadius),
-          color: color,
-        ),
+      child: Card(
+        color: color,
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(SizeConstraint.borderRadius)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

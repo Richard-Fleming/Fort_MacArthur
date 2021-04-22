@@ -56,22 +56,20 @@ class CustomDrawer extends StatelessWidget {
             'Articles',
             () => action(context, 1),
           ),
+         
           CustomListTiles(
-            Icons.tour,
-            'Virtual Tours',
-            () => action(context, 2),
-          ),
+              Icons.tour, 'Virtual Tours', () => action(context, 2)),
+			  
           CustomListTiles(
-            Icons.bookmarks,
-            'About us',
-            () => action(context, 3),
-          ),
+              Icons.movie, 'Film Location', () => action(context, 3)),
+			  
           CustomListTiles(
-            Icons.cast_for_education,
+              Icons.construction, 'Projects', () => action(context, 4)),
+			  
+          Icons.cast_for_education,
             'Get Educated',
-            () => action(context, 4),
-          )
-        ],
+            () => action(context, 5),
+          )],
       ),
     );
   }

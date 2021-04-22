@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:fort_macarthur/educationpage.dart';
 import 'homepage.dart';
 import 'testpage.dart';
+import 'filmLocation.dart';
 import 'customDrawer.dart';
 import 'package:fort_macarthur/virtual_tours.dart';
+import 'package:fort_macarthur/projects.dart';
 
 class Viewpage extends StatefulWidget {
   @override
@@ -16,14 +18,16 @@ class _ViewPageState extends State<Viewpage> {
     "Home",
     "Test",
     "Virtual Tours",
-    "Test",
-    "Get Educated"
+    "Projects",
+    "Film Location",
+	"Get Educated"
   ];
   List<Widget> pagelist = [
     HomePage(),
-    TestPage(), // Articles
+    TestPage(),
     VirtualTours(),
-    TestPage(), // About us
+    ProjectsPage(),
+    FilmLocation(), 
     EducationPage()
   ]; // add your pages here
 
