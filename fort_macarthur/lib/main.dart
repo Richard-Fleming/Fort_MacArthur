@@ -6,6 +6,7 @@ import 'device.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),
+      debugShowCheckedModeBanner: false,
     ));
 
 class _SplashScreen extends StatefulWidget {
