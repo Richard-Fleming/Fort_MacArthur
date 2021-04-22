@@ -12,13 +12,18 @@ class Viewpage extends StatefulWidget {
 
 class _ViewPageState extends State<Viewpage> {
   int index = 0;
-  List<String> titleBar = ["Home", "Test", "Virtual Tours", "Test", "Get Educated"];
+  List<String> titleBar = [
+    "Home",
+    "Test",
+    "Virtual Tours",
+    "Test",
+    "Get Educated"
+  ];
   List<Widget> pagelist = [
     HomePage(),
-    TestPage(),
-    TestPage(),
-    TestPage(),
-	VirtualTours(),
+    TestPage(), // Articles
+    VirtualTours(),
+    TestPage(), // About us
     EducationPage()
   ]; // add your pages here
 

@@ -21,7 +21,9 @@ class CustomDrawer extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Material(
-                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50.0),
+                    ),
                     elevation: 10,
                     child: Image.asset(
                       "assets/images/battery.png",
@@ -31,8 +33,10 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.all(4.0),
-                    child: Text("test",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0)),
+                    child: Text(
+                      "test",
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ),
                   )
                 ],
               ),
@@ -40,19 +44,33 @@ class CustomDrawer extends StatelessWidget {
           ),
           //add your page to the list
           CustomListTiles(
-              Icons.home,
-              'Home',
-              () => action(
-                    context,
-                    0,
-                  )),
-          CustomListTiles(Icons.article, 'Articles', () => action(context, 1)),
+            Icons.home,
+            'Home',
+            () => action(
+              context,
+              0,
+            ),
+          ),
           CustomListTiles(
-              Icons.tour, 'Virtual Tours', () => action(context, 2)),
+            Icons.article,
+            'Articles',
+            () => action(context, 1),
+          ),
           CustomListTiles(
-              Icons.bookmarks, 'About us', () => action(context, 3)),
-          CustomListTiles(Icons.cast_for_education, 'Get Educated',
-              () => action(context, 4))
+            Icons.tour,
+            'Virtual Tours',
+            () => action(context, 2),
+          ),
+          CustomListTiles(
+            Icons.bookmarks,
+            'About us',
+            () => action(context, 3),
+          ),
+          CustomListTiles(
+            Icons.cast_for_education,
+            'Get Educated',
+            () => action(context, 4),
+          )
         ],
       ),
     );
