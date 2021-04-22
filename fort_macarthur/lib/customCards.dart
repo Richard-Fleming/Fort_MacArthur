@@ -3,12 +3,17 @@ import 'viewCard.dart';
 import 'sizeConstraints.dart';
 
 class CustomCards extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String imgSrc;
-  final String desc;
+  final String title, subtitle, imgSrc, desc;
+  final Function()? action;
 
-  CustomCards(this.title, this.subtitle, this.imgSrc, this.desc);
+  const CustomCards(
+      {Key? key,
+      required this.title,
+      required this.subtitle,
+      required this.imgSrc,
+      required this.desc,
+      required this.action})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -45,10 +50,11 @@ class CustomCards extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => ViewCard(
-                                img: imgSrc,
+                                imgSrc: imgSrc,
                                 title: title,
                                 subtitle: subtitle,
                                 desc: desc,
+                                action: action,
                               )));
                 },
                 child: const Text('View'),

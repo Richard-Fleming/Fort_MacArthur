@@ -3,13 +3,15 @@ import 'package:fort_macarthur/sizeConstraints.dart';
 import 'device.dart';
 
 class ViewCard extends StatelessWidget {
-  final String img, title, subtitle, desc;
+  final String imgSrc, title, subtitle, desc;
+  final Function()? action;
   const ViewCard(
       {Key? key,
-      required this.img,
+      required this.imgSrc,
       required this.title,
       required this.subtitle,
-      required this.desc})
+      required this.desc,
+      this.action})
       : super(key: key);
 
   @override
@@ -28,11 +30,14 @@ class ViewCard extends StatelessWidget {
         body: Align(
             alignment: Alignment.center,
             child: ListView(children: <Widget>[
-              Container(child: Image.asset(img)),
+              Container(
+                  child: GestureDetector(
+                      onTap: action, child: Image.asset(imgSrc))),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: EdgeInsets.all(SizeConstraint.edgeInsets),
+                  padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 10,
+                      SizeConstraint.edgeInsets, 0),
                   child: Text(
                     title,
                     style: TextStyle(
@@ -47,12 +52,13 @@ class ViewCard extends StatelessWidget {
                 child: Container(
                     alignment: Alignment.centerLeft,
                     child: Container(
-                      padding: EdgeInsets.all(SizeConstraint.edgeInsets),
+                      padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 0,
+                          SizeConstraint.edgeInsets, 0),
                       child: Text(
                         subtitle,
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 26,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold),
                       ),
                     )),
@@ -68,7 +74,7 @@ class ViewCard extends StatelessWidget {
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                     ),
-                  ))
+                  )),
             ])));
   }
 }
