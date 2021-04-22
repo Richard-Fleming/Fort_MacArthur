@@ -1,12 +1,18 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'homepage.dart';
 import 'aboutus.dart';
+=======
+>>>>>>> master
 import 'dart:async';
-import 'size_config.dart';
+import 'viewpage.dart';
+import 'package:fort_macarthur/device.dart';
+import 'device.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),
+      debugShowCheckedModeBanner: false,
     ));
 
 class _SplashScreen extends StatefulWidget {
@@ -23,7 +29,7 @@ class _SplashState extends State<_SplashScreen> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => AboutUsPage()),
+          MaterialPageRoute(builder: (context) => Viewpage()),
         );
       },
     );
@@ -31,9 +37,9 @@ class _SplashState extends State<_SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Device.init();
     return Scaffold(
-      backgroundColor: SizeConfig.backroundCOLOR,
+      backgroundColor: Device.backroundCOLOR,
       body: Center(
         child: Image.asset('assets/logo/logo.png'),
       ),
