@@ -1,6 +1,7 @@
 // Our code files
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/device.dart';
+import 'package:fort_macarthur/sizeConstraints.dart';
 // Any imported dependencies
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -23,7 +24,18 @@ Widget _layoutDetails() {
 }
 
 Widget _sliderSlideDetails() {
-  int _currentIndex = 0;
+  Color _textColor = Colors.black;
+
+  final List<EducateData> educationData = [
+    EducateData(title: "Battery Osgood - Farley"),
+    /* EducateData(title: "Battery Leary Merriam", desc: "testing some more"),
+    EducateData(title: "Battery Barlow - Saxton", desc: "testing some more"),
+    EducateData(title: "Battery Lodor", desc: "testing some more"),
+    EducateData(title: "Battery Erwin", desc: "testing some more"),
+    EducateData(title: "Battery Eubanks", desc: "testing some more"),
+    EducateData(title: "Battery 127 (Paul D Bunker)", desc: "testing some more") */
+  ];
+
   List imageList = [
     Slide(
       imagePath: "assets/images/Battery Osgood - Farley slides/Slide1.png",
@@ -41,52 +53,82 @@ Widget _sliderSlideDetails() {
       imagePath: "assets/images/Battery Osgood - Farley slides/Slide5.png",
     )
   ];
-  List<T> map<T>(List list, Function handler) {
+  /* List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
       result.add(handler(i, list[i]));
     }
     return result;
-  }
+  } */
 
   return Builder(
     builder: (BuildContext context) {
       return Scaffold(
         backgroundColor: Device.backroundCOLOR,
-        body: Column(
-          children: <Widget>[
-            Card(
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  height: 400.0,
-                  autoPlay: false,
-                  aspectRatio: 1.0,
-                  viewportFraction: .9,
+        body: ListView(
+          shrinkWrap: true,
+          children: [
+            Align(
+              child: Container(
+                child: Text(
+                  "Batteries",
+                  style: TextStyle(fontSize: 20),
                 ),
-                items: imageList.map((image) {
-                  return Builder(builder: (BuildContext context) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.30,
-                      width: MediaQuery.of(context).size.width,
-                      child: Card(
-                        color: Colors.blueAccent,
-                        child: image,
-                      ),
-                    );
-                  });
-                }).toList(),
+                margin:
+                    EdgeInsets.symmetric(vertical: SizeConstraint.edgeInsets),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: map<Widget>(imageList, (index, url) {
-                  return Container(
-                    width: 10.0,
-                    height: 10.0,
-                    margin:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                  );
-                }),
-              ),
+              alignment: Alignment.topCenter,
+            ),
+            Column(
+              children: educationData
+                  .map((data) => ListTileTheme(
+                        tileColor: Colors.brown.shade300,
+                        child: ExpansionTile(
+                          onExpansionChanged: (expanded) {
+                            expanded
+                                ? _textColor = Colors.black
+                                : _textColor = Colors.black;
+                          },
+                          trailing: Icon(
+                            Icons.expand_more,
+                            color: _textColor,
+                          ),
+                          title: Text(
+                            data.title,
+                            style: TextStyle(
+                              color: _textColor,
+                            ),
+                          ),
+                          children: [
+                            Card(
+                              child: CarouselSlider(
+                                options: CarouselOptions(
+                                  height: 400.0,
+                                  autoPlay: false,
+                                  aspectRatio: 1.0,
+                                  viewportFraction: .9,
+                                ),
+                                items: imageList.map((image) {
+                                  return Builder(
+                                      builder: (BuildContext context) {
+                                    return Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.30,
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Card(
+                                        color: Colors.blueAccent,
+                                        child: image,
+                                      ),
+                                    );
+                                  });
+                                }).toList(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ))
+                  .toList(),
             ),
           ],
         ),
@@ -95,7 +137,6 @@ Widget _sliderSlideDetails() {
   );
 }
 
-// ignore: must_be_immutable
 class Slide extends StatelessWidget {
   final String? imagePath;
   Slide({Key? key, this.imagePath}) : super(key: key);
@@ -126,4 +167,10 @@ class Slide extends StatelessWidget {
       ),
     );
   }
+}
+
+class EducateData {
+  String title;
+
+  EducateData({required this.title});
 }

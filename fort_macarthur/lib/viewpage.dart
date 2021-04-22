@@ -18,16 +18,16 @@ class _ViewPageState extends State<Viewpage> {
     "Home",
     "Test",
     "Virtual Tours",
-    "Projects",
     "Film Location",
-	"Get Educated"
+    "Projects",
+    "Get Educated"
   ];
   List<Widget> pagelist = [
     HomePage(),
     TestPage(),
     VirtualTours(),
+    FilmLocation(),
     ProjectsPage(),
-    FilmLocation(), 
     EducationPage()
   ]; // add your pages here
 
