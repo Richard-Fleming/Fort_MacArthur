@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fort_macarthur/device.dart';
 import 'package:fort_macarthur/sizeConstraints.dart';
+import 'package:fort_macarthur/quizPage.dart';
 
 // Any imported dependencies
 import 'package:carousel_slider/carousel_slider.dart';
