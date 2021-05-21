@@ -1,0 +1,88 @@
+[
+    {
+        "1": "Which of these time frames was Fort MacArthur created during ?",
+        "2": "How big was each gun at this battery ?",
+        "3": "How many times was Battery Osgood's gun fired total ?",
+        "4": "How many times was Battery Farley's gun fired total ?",
+        "5": "By what time period had the batterys guns become obsolete ?",
+        "6": "In what year were the twin guns declared surplus ?",
+        "7": "Against what were disappearing guns considered effective ?",
+        "8": "How heavy was the ammunition used by both batteries ?",
+        "9": "Why were both batteries rarely fired ?",
+        "10": "During WWII the batteries saw use again, but for what ?"
+    },
+    {
+        "1": {
+            "a": "1916-1919",
+            "b": "1914-1917",
+            "c": "1920-1923",
+            "d": "1911-1914"
+        },
+        "2": {
+            "a": "17 inches",
+            "b": "16 inches",
+            "c": "15 inches",
+            "d": "14 inches"
+        },
+        "3": {
+            "a": "134",
+            "b": "122",
+            "c": "116",
+            "d": "108"
+        },
+        "4": {
+            "a": "121",
+            "b": "143",
+            "c": "113",
+            "d": "131"
+        },
+        "5": {
+            "a": "mid-1930s",
+            "b": "mid 1910s",
+            "c": "mid 1950s",
+            "d": "mid 1920s"
+        },
+        "6": {
+            "a": "1940",
+            "b": "1944",
+            "c": "1938",
+            "d": "1946"
+        },
+        "7": {
+            "a": "Aerial attacks",
+            "b": "Naval attacks",
+            "c": "Land attacks",
+            "d": "Other"
+        },
+        "8": {
+            "a": "1970 pounds",
+            "b": "1325 pounds",
+            "c": "1768 pounds",
+            "d": "1560 pounds"
+        },
+        "9": {
+            "a": "Damage to surrounding residencies",
+            "b": "They were awkward to deploy",
+            "c": "Damage to the batteries themselves",
+            "d": "A flaw in their 'dissapearing' mechanisms"
+        },
+        "10": {
+            "a": "As a beach and spa",
+            "b": "As a warehouse for the armies weapons",
+            "c": "As a training camp for new soliders",
+            "d": "As a radio station and fire control switch room"
+        }
+    },
+    {
+        "1": "1916-1919",
+        "2": "14 inches",
+        "3": "116",
+        "4": "121",
+        "5": "mid 1920s",
+        "6": "1944",
+        "7": "Naval attacks",
+        "8": "1560 pounds",
+        "9": "Damage to surrounding residencies",
+        "10": "As a radio station and fire control switch room"
+    }
+]

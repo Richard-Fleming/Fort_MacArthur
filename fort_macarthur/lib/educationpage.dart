@@ -1,7 +1,9 @@
 // Our code files
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fort_macarthur/device.dart';
 import 'package:fort_macarthur/sizeConstraints.dart';
+
 // Any imported dependencies
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -10,13 +12,115 @@ class EducationPage extends StatefulWidget {
   _EducationPageState createState() => _EducationPageState();
 }
 
+List<String> images = [
+  "assets/images/batteryOsgood.jpg",
+];
+
+List<String> des = [
+  "The twin batteries Osgood and Farley have cemented their place in history.\nIf you want to show off to your friends how clever you are \nthis is the place to start !!",
+];
+
+List imageList = [
+  Slide(
+    imagePath: "assets/images/Battery Osgood - Farley slides/Slide1.png",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Osgood - Farley slides/Slide2.png",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Osgood - Farley slides/Slide3.png",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Osgood - Farley slides/Slide4.png",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Osgood - Farley slides/Slide5.png",
+  )
+];
+
 class _EducationPageState extends State<EducationPage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return Scaffold(
       body: _layoutDetails(),
     );
   }
+}
+
+Widget customcard(
+    String battname, String image, String des, BuildContext context) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+      vertical: 20.0,
+      horizontal: 30.0,
+    ),
+    child: InkWell(
+      onTap: () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          // in changelog 1 we will pass the battname name to ther other widget class
+          // this name will be used to open a particular JSON file
+          // for a particular battery
+          builder: (context) => getjson(battname),
+        ));
+      },
+      child: Material(
+        color: Colors.indigoAccent,
+        elevation: 10.0,
+        borderRadius: BorderRadius.circular(25.0),
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 10.0,
+                ),
+                child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Container(
+                    // changing from 200 to 150 as to look better
+                    height: 150.0,
+                    width: 150.0,
+                    child: ClipOval(
+                      child: Image(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          image,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Center(
+                child: Text(
+                  battname,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontFamily: "Quando",
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                child: Text(
+                  des,
+                  style: TextStyle(
+                      fontSize: 18.0, color: Colors.white, fontFamily: "Alike"),
+                  maxLines: 5,
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }
 
 Widget _layoutDetails() {
@@ -28,31 +132,14 @@ Widget _sliderSlideDetails() {
 
   final List<EducateData> educationData = [
     EducateData(title: "Battery Osgood - Farley"),
-    /* EducateData(title: "Battery Leary Merriam", desc: "testing some more"),
-    EducateData(title: "Battery Barlow - Saxton", desc: "testing some more"),
-    EducateData(title: "Battery Lodor", desc: "testing some more"),
-    EducateData(title: "Battery Erwin", desc: "testing some more"),
-    EducateData(title: "Battery Eubanks", desc: "testing some more"),
-    EducateData(title: "Battery 127 (Paul D Bunker)", desc: "testing some more") */
+    /* EducateData(title: "Battery Leary Merriam"),
+    EducateData(title: "Battery Barlow - Saxton"),
+    EducateData(title: "Battery Lodor"),
+    EducateData(title: "Battery Erwin"),
+    EducateData(title: "Battery Eubanks"),
+    EducateData(title: "Battery 127 (Paul D Bunker)") */
   ];
 
-  List imageList = [
-    Slide(
-      imagePath: "assets/images/Battery Osgood - Farley slides/Slide1.png",
-    ),
-    Slide(
-      imagePath: "assets/images/Battery Osgood - Farley slides/Slide2.png",
-    ),
-    Slide(
-      imagePath: "assets/images/Battery Osgood - Farley slides/Slide3.png",
-    ),
-    Slide(
-      imagePath: "assets/images/Battery Osgood - Farley slides/Slide4.png",
-    ),
-    Slide(
-      imagePath: "assets/images/Battery Osgood - Farley slides/Slide5.png",
-    )
-  ];
   /* List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
@@ -125,6 +212,45 @@ Widget _sliderSlideDetails() {
                                 }).toList(),
                               ),
                             ),
+                          ],
+                        ),
+                      ))
+                  .toList(),
+            ),
+            Align(
+              heightFactor: 1,
+              child: Container(
+                child: Text(
+                  "Quizes",
+                  style: TextStyle(fontSize: 20),
+                ),
+                margin:
+                    EdgeInsets.symmetric(vertical: SizeConstraint.edgeInsets),
+              ),
+              alignment: Alignment.topCenter,
+            ),
+            Column(
+              children: educationData
+                  .map((data) => ListTileTheme(
+                        tileColor: Colors.brown.shade300,
+                        child: ExpansionTile(
+                          onExpansionChanged: (expanded) {
+                            expanded
+                                ? _textColor = Colors.black
+                                : _textColor = Colors.black;
+                          },
+                          trailing: Icon(
+                            Icons.expand_more,
+                            color: _textColor,
+                          ),
+                          title: Text(
+                            data.title,
+                            style: TextStyle(
+                              color: _textColor,
+                            ),
+                          ),
+                          children: [
+                            customcard("Python", images[0], des[0], context),
                           ],
                         ),
                       ))
