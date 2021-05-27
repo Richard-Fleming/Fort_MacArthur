@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fort_macarthur/post_history.dart';
 import 'homepage.dart';
 import 'testpage.dart';
 import 'filmLocation.dart';
@@ -20,7 +21,8 @@ class _ViewPageState extends State<Viewpage> {
     "Virtual Tours",
     "Film Location",
     "Projects",
-    "About Us"
+    "About Us",
+    "Post History"
   ];
   List<Widget> pagelist = [
     HomePage(),
@@ -29,6 +31,11 @@ class _ViewPageState extends State<Viewpage> {
     FilmLocation(),
     ProjectsPage(),
     AboutUsPage(),
+    PostHistoryView(
+        title: "Osgood",
+        mainImage: "assets/images/batteryOsgood.jpg",
+        hasHistory: false,
+        hasPhotos: true),
   ]; // add your pages here
 
   @override

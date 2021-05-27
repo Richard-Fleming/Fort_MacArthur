@@ -53,7 +53,10 @@ class CustomDrawer extends StatelessWidget {
               Icons.movie, 'Film Location', () => action(context, 3)),
           CustomListTiles(
               Icons.construction, 'Projects', () => action(context, 4)),
-          CustomListTiles(Icons.bookmarks, 'About us', () => action(context, 5))
+          CustomListTiles(
+              Icons.bookmarks, 'About us', () => action(context, 5)),
+          CustomListTiles(Icons.history_edu_rounded, 'Post History',
+              () => action(context, 6))
         ],
       ),
     );
