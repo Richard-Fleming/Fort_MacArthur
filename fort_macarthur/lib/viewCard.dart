@@ -3,15 +3,17 @@ import 'package:fort_macarthur/sizeConstraints.dart';
 import 'device.dart';
 
 class ViewCard extends StatelessWidget {
-  final String imgSrc, title, subtitle, desc;
+  final String? imgSrc, title, subtitle, desc;
   final Function()? action;
+  final MaterialPageRoute? pageRoute;
   const ViewCard(
       {Key? key,
       required this.imgSrc,
       required this.title,
       required this.subtitle,
       required this.desc,
-      this.action})
+      this.action,
+      this.pageRoute})
       : super(key: key);
 
   @override
@@ -20,7 +22,7 @@ class ViewCard extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Device.backroundCOLOR,
           title: Text(
-            this.title,
+            this.title!,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -32,14 +34,14 @@ class ViewCard extends StatelessWidget {
             child: ListView(children: <Widget>[
               Container(
                   child: GestureDetector(
-                      onTap: action, child: Image.asset(imgSrc))),
+                      onTap: action, child: Image.asset(imgSrc!))),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
                   padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 10,
                       SizeConstraint.edgeInsets, 0),
                   child: Text(
-                    title,
+                    title!,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 26,
@@ -55,7 +57,7 @@ class ViewCard extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 0,
                           SizeConstraint.edgeInsets, 0),
                       child: Text(
-                        subtitle,
+                        subtitle!,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 14,
@@ -68,13 +70,29 @@ class ViewCard extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(SizeConstraint.edgeInsets),
                     child: Text(
-                      desc,
+                      desc!,
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                     ),
                   )),
+              hasLink(context)
             ])));
+  }
+
+  hasLink(context) {
+    if (pageRoute != null) {
+      return ButtonBar(alignment: MainAxisAlignment.end, children: [
+        TextButton(
+          onPressed: () {
+            Navigator.push(context, pageRoute!);
+          },
+          child: const Text('Learn more'),
+        )
+      ]);
+    } else {
+      return Text("");
+    }
   }
 }

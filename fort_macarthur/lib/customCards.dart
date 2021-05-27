@@ -3,16 +3,17 @@ import 'viewCard.dart';
 import 'sizeConstraints.dart';
 
 class CustomCards extends StatelessWidget {
-  final String title, subtitle, imgSrc, desc;
+  final String? title, subtitle, imgSrc, desc;
   final Function()? action;
-
+  final MaterialPageRoute? pageRoute;
   const CustomCards(
       {Key? key,
       required this.title,
       required this.subtitle,
       required this.imgSrc,
       required this.desc,
-      required this.action})
+      required this.action,
+      required this.pageRoute})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -22,20 +23,20 @@ class CustomCards extends StatelessWidget {
         children: [
           ListTile(
             leading: Icon(Icons.circle),
-            title: Text(title),
+            title: Text(title!),
             subtitle: Text(
-              subtitle,
+              subtitle!,
               style: TextStyle(
                   color: Colors.black.withOpacity(0.8),
                   fontStyle: FontStyle.italic),
             ),
           ),
-          Image.asset(imgSrc),
+          Image.asset(imgSrc!),
           Padding(
             padding: const EdgeInsets.fromLTRB(SizeConstraint.edgeInsets,
                 SizeConstraint.edgeInsets, SizeConstraint.edgeInsets, 0),
             child: Text(
-              desc,
+              desc!,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(color: Colors.black.withOpacity(0.8)),
@@ -50,12 +51,12 @@ class CustomCards extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => ViewCard(
-                                imgSrc: imgSrc,
-                                title: title,
-                                subtitle: subtitle,
-                                desc: desc,
-                                action: action,
-                              )));
+                              imgSrc: imgSrc!,
+                              title: title!,
+                              subtitle: subtitle!,
+                              desc: desc!,
+                              action: action,
+                              pageRoute: pageRoute)));
                 },
                 child: const Text('View'),
               ),
