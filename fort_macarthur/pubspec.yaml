@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
 
   carousel_slider: ^4.0.0-nullsafety.0
+  awesome_dialog: ^2.0.0 # Used for dialog boxes
 
 
 
@@ -51,6 +52,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/Quiz/
     - assets/logo/
     - assets/images/
     - assets/images/Battery Osgood - Farley slides/
