@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fort_macarthur/device.dart';
 import 'package:fort_macarthur/sizeConstraints.dart';
-
-import 'package:fort_macarthur/QuizPage.dart';
-
+import 'package:fort_macarthur/quizPage.dart';
 
 // Any imported dependencies
 import 'package:carousel_slider/carousel_slider.dart';
@@ -65,7 +63,7 @@ Widget customcard(
           // in changelog 1 we will pass the battname name to ther other widget class
           // this name will be used to open a particular JSON file
           // for a particular battery
-          builder: (context) => GetJson(battname),
+          builder: (context) => getjson(battname),
         ));
       },
       child: Material(
@@ -253,8 +251,7 @@ Widget _sliderSlideDetails() {
                             ),
                           ),
                           children: [
-                            customcard(
-                                "Osgood-Farley", images[0], des[0], context),
+                            customcard("Python", images[0], des[0], context),
                           ],
                         ),
                       ))

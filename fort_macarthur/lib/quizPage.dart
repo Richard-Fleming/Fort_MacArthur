@@ -6,21 +6,20 @@ import 'package:flutter/services.dart';
 import 'package:fort_macarthur/resultpages.dart';
 
 // Remember that key on line 44(ish) may be wrong key type if bugging out
-class GetJson extends StatelessWidget {
+class getjson extends StatelessWidget {
   // accept the langname as a parameter
 
-  late String? langname;
-  GetJson(this.langname);
+  String langname;
+  getjson(this.langname);
   late String assettoload;
 
   // a function
   // sets the asset to a particular JSON file
   // and opens the JSON
   setasset() {
-    if (langname == "Osgood-Farley") {
-      assettoload = "assets/Quiz/Battery_Osgood.json";
-    }
-    /* else if (langname == "Java") {
+    if (langname == "Python") {
+      assettoload = "assets/python.json";
+    } else if (langname == "Java") {
       assettoload = "assets/java.json";
     } else if (langname == "Javascript") {
       assettoload = "assets/js.json";
@@ -28,7 +27,7 @@ class GetJson extends StatelessWidget {
       assettoload = "assets/cpp.json";
     } else {
       assettoload = "assets/linux.json";
-    } */
+    }
   }
 
   @override
@@ -236,18 +235,18 @@ class _QuizpageState extends State<Quizpage> {
             context: context,
             builder: (context) => AlertDialog(
                   title: Text(
-                    "Battery Osgood-Farley",
+                    "Quizstar",
                   ),
                   content: Text("You Can't Go Back At This Stage."),
                   actions: <Widget>[
                     TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
                       child: Text(
                         'Ok',
                       ),
-                    )
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
                   ],
                 ));
       },
@@ -307,4 +306,3 @@ class _QuizpageState extends State<Quizpage> {
     );
   }
 }
-
