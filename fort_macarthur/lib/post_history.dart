@@ -75,8 +75,11 @@ class PostHistoryView extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        ImageGridView(data: data.images!)));
+                                    builder: (context) => ImageGridView(
+                                          data: data.images!,
+                                          elevation: 2.0,
+                                          imageFit: BoxFit.fill,
+                                        )));
                           },
                         )
                       : Container(),

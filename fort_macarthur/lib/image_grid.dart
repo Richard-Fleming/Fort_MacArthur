@@ -43,28 +43,38 @@ class ImageGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-        crossAxisCount: crossAxisCount != null ? crossAxisCount! : 3,
-        children: data
-            .map((data) => GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ImageView(
-                                image: ImageGridData(
-                                    imagePath: data.imagePath,
-                                    title: data.title))));
-                  },
-                  child: Card(
-                    elevation: elevation != null ? elevation! : 1,
-                    child: Image.asset(
-                      "assets/logo/logo.png",
-                      fit: imageFit != null ? imageFit! : BoxFit.fitWidth,
-                    ),
-                  ),
-                ))
-            .toList());
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Slideshow"),
+      ),
+      backgroundColor: Device.backroundCOLOR,
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+        child: GridView.count(
+            crossAxisCount: crossAxisCount != null ? crossAxisCount! : 3,
+            children: data
+                .map((data) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ImageView(
+                                    image: ImageGridData(
+                                        imagePath: data.imagePath,
+                                        title: data.title))));
+                      },
+                      child: Card(
+                        clipBehavior: Clip.hardEdge,
+                        elevation: elevation != null ? elevation! : 1,
+                        child: Image.asset(
+                          data.imagePath,
+                          fit: imageFit != null ? imageFit! : BoxFit.fitWidth,
+                        ),
+                      ),
+                    ))
+                .toList()),
+      ),
+    );
   }
 }
 

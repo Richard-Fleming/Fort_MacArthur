@@ -64,21 +64,41 @@ class _VirtualToursState extends State<VirtualTours> {
             gunsProduced: "16. 4 US (Fort MacArthur) 12 Territorial"),
         images: <ImageGridData>[
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/battery-osgood.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/battery-osgood.jpg",
+              title: "Battery Osgood today"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/battery-osgood3.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/battery-osgood3.jpg",
+              title: "Museum Grounds from the top of the Parapet Wall"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/battery-osgood4.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/battery-osgood4.jpg",
+              title: "Museum Grounds & Battery Osgood"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/BtryOsgood.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/BtryOsgood.jpg",
+              title: "Battery Osgood during a firing practice in the 1920s"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/MuseumEntrance.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/MuseumEntrance.jpg",
+              title: "Entrance to the Magazine and Plotting Room"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/battery-OsFairAir.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/OsFarAir.jpg",
+              title: "Battery Osgood-Farley as viewed from the air"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/OsgoodFarleyBP.jpg"),
+              imagePath: "assets/images/osgoodSlideshow/OsgoodFarleyBP.jpg",
+              title: "Battery Osgood Blueprint"),
           ImageGridData(
-              imagePath: "assets/images/osgoodSlideshow/rear-gallery.jpg")
+              imagePath: "assets/images/osgoodSlideshow/rear-gallery.jpg",
+              title: "The Rear Gallery viewed from the top of the battery"),
+          ImageGridData(
+              imagePath: "assets/images/osgoodSlideshow/gunLoadingOs.jpg"),
+          ImageGridData(
+              imagePath: "assets/images/osgoodSlideshow/guySitting.jpg"),
+          ImageGridData(
+              imagePath: "assets/images/osgoodSlideshow/munition.jpg"),
+          ImageGridData(
+              imagePath: "assets/images/osgoodSlideshow/osgoodOld.jpg"),
+          ImageGridData(
+              imagePath: "assets/images/osgoodSlideshow/propshell.jpg"),
+          ImageGridData(
+              imagePath: "assets/images/osgoodSlideshow/TIoperator.jpg")
         ]),
     PanoData(title: "Farley", panoPath: "assets/images/farley_pano.jpg")
   ];
