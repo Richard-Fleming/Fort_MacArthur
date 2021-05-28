@@ -12,7 +12,7 @@ class ImageView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Device.backroundCOLOR,
       appBar: AppBar(
-        title: Text(image.title),
+        title: image.title != null ? Text(image.title!) : Text("Image"),
       ),
       body: InteractiveViewer(
         child: Container(
@@ -53,9 +53,8 @@ class ImageGridView extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => ImageView(
                                 image: ImageGridData(
-                                    imagePath:
-                                        "assets/images/batteryOsgood.jpg",
-                                    title: "Allexis ma fetysz stop"))));
+                                    imagePath: data.imagePath,
+                                    title: data.title))));
                   },
                   child: Card(
                     elevation: elevation != null ? elevation! : 1,
@@ -71,7 +70,7 @@ class ImageGridView extends StatelessWidget {
 
 class ImageGridData {
   String imagePath;
-  String title;
+  String? title;
 
-  ImageGridData({required this.imagePath, required this.title});
+  ImageGridData({required this.imagePath, this.title});
 }
