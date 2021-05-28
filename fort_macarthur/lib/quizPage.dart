@@ -6,27 +6,19 @@ import 'package:flutter/services.dart';
 import 'package:fort_macarthur/resultpages.dart';
 
 // Remember that key on line 44(ish) may be wrong key type if bugging out
-class getjson extends StatelessWidget {
+class GetJson extends StatelessWidget {
   // accept the langname as a parameter
 
-  String langname;
-  getjson(this.langname);
+  String battname;
+  GetJson(this.battname);
   late String assettoload;
 
   // a function
   // sets the asset to a particular JSON file
   // and opens the JSON
   setasset() {
-    if (langname == "Python") {
-      assettoload = "assets/python.json";
-    } else if (langname == "Java") {
-      assettoload = "assets/java.json";
-    } else if (langname == "Javascript") {
-      assettoload = "assets/js.json";
-    } else if (langname == "C++") {
-      assettoload = "assets/cpp.json";
-    } else {
-      assettoload = "assets/linux.json";
+    if (battname == "Battery Osgood - Farley") {
+      assettoload = "assets/Quiz/Battery_Osgood.json";
     }
   }
 
@@ -230,8 +222,8 @@ class _QuizpageState extends State<Quizpage> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return WillPopScope(
-      onWillPop: () {
-        return showDialog(
+      onWillPop: () async {
+        return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
                   title: Text(

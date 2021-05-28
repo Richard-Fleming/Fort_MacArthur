@@ -63,7 +63,7 @@ Widget customcard(
           // in changelog 1 we will pass the battname name to ther other widget class
           // this name will be used to open a particular JSON file
           // for a particular battery
-          builder: (context) => getjson(battname),
+          builder: (context) => GetJson(battname),
         ));
       },
       child: Material(
@@ -251,7 +251,8 @@ Widget _sliderSlideDetails() {
                             ),
                           ),
                           children: [
-                            customcard("Python", images[0], des[0], context),
+                            customcard("Battery Osgood - Farley", images[0],
+                                des[0], context),
                           ],
                         ),
                       ))
