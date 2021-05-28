@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'viewpage.dart';
@@ -6,6 +7,7 @@ import 'device.dart';
 
 void main() => runApp(MaterialApp(
       home: _SplashScreen(),
+      debugShowCheckedModeBanner: false,
     ));
 
 class _SplashScreen extends StatefulWidget {
