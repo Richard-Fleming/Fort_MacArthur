@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fort_macarthur/device.dart';
 import 'package:fort_macarthur/panoramaView.dart';
 
 class BatteryDetails extends StatelessWidget {
@@ -12,90 +13,88 @@ class BatteryDetails extends StatelessWidget {
       appBar: AppBar(
         title: Text("Details"),
       ),
-      body: Column(
-        children: [
-          Card(
-            child: Column(
-              children: [
-                Text("Construction Commenced:"),
-                Text(details.constructionStart!)
-              ],
-            ),
+      backgroundColor: Device.backroundCOLOR,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              DetailsCard(
+                title: "Construction Commenced:",
+                desc: details.constructionStart!,
+              ),
+              DetailsCard(
+                title: "Construction Completed:",
+                desc: details.constructionEnd!,
+              ),
+              DetailsCard(
+                title: "Date of Transfer:",
+                desc: details.dateOfTransfer!,
+              ),
+              DetailsCard(
+                title: "Cost of Construction:",
+                desc: details.constructionCost.toString(),
+              ),
+              DetailsCard(
+                title: "Construction Materials:",
+                desc: details.constructionMaterials!,
+              ),
+              DetailsCard(
+                title: "Gun Type and Manufacturer:",
+                desc: details.gunTypeAndManufacturer!,
+              ),
+              DetailsCard(
+                title: "Carriage Type and Manufacturer:",
+                desc: details.carriageTypeAndManufacturer!,
+              ),
+              DetailsCard(
+                title: "Total Weight of Each Gun:",
+                desc: details.weight.toString(),
+              ),
+              DetailsCard(
+                title: "Radius of Fire:",
+                desc: details.fireRadius.toString(),
+              ),
+              DetailsCard(
+                title: "Number of Guns Produced:",
+                desc: details.gunsProduced!,
+              )
+            ],
           ),
-          Card(
-            child: Column(
-              children: [
-                Text("Construction Completed:"),
-                Text(details.constructionEnd!)
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Date of Transfer:"),
-                Text(details.dateOfTransfer!)
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Cost of Construction:"),
-                Text(details.constructionCost.toString())
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Construction Materials:"),
-                Text(details.constructionMaterials!)
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Gun Type and Manufacturer:"),
-                Text(details.gunTypeAndManufacturer!)
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Carriage Type and Manufacturer:"),
-                Text(details.carriageTypeAndManufacturer!)
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Total Weight of each Gun:"),
-                Text(details.weight.toString())
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Radius of Fire:"),
-                Text(details.fireRadius.toString())
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Text("Number of Guns Produced:"),
-                Text(details.gunsProduced.toString())
-              ],
-            ),
-          )
-        ],
+        ),
       ),
     );
+  }
+}
+
+class DetailsCard extends StatelessWidget {
+  final String title;
+  final String desc;
+
+  DetailsCard({Key? key, required this.title, required this.desc})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        elevation: 2.0,
+        margin: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            child: Column(
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  desc,
+                  style: TextStyle(fontSize: 16),
+                )
+              ],
+            )));
   }
 }

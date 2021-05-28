@@ -61,7 +61,7 @@ class _VirtualToursState extends State<VirtualTours> {
                 "M1907M1 Disappearing Carriage - Watertown",
             weight: 410,
             fireRadius: 170,
-            gunsProduced: "16.\n4 US (Fort MacArthur) 12 Territorial"),
+            gunsProduced: "16. 4 US (Fort MacArthur) 12 Territorial"),
         images: <ImageGridData>[
           ImageGridData(
               imagePath: "assets/images/osgoodSlideshow/battery-osgood.jpg"),
