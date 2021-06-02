@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fort_macarthur/resultpages.dart';
 
-// Remember that key on line 44(ish) may be wrong key type if bugging out
 class GetJson extends StatelessWidget {
   // accept the langname as a parameter
 
@@ -42,7 +41,7 @@ class GetJson extends StatelessWidget {
 class Quizpage extends StatefulWidget {
   final List mydata;
 
-  Quizpage({required Key key, required this.mydata}) : super(key: key);
+  Quizpage({Key? key, /*required*/ required this.mydata}) : super(key: key);
   @override
   _QuizpageState createState() => _QuizpageState(mydata);
 }
@@ -55,7 +54,7 @@ class _QuizpageState extends State<Quizpage> {
   Color right = Colors.green;
   Color wrong = Colors.red;
   int marks = 0;
-  int i = 1;
+  int? i = 1;
   bool disableAnswer = false;
   // extra varibale to iterate
   int j = 1;
@@ -79,8 +78,8 @@ class _QuizpageState extends State<Quizpage> {
   genrandomarray() {
     var distinctIds = [];
     var rand = new Random();
-    for (int i = 0;;) {
-      distinctIds.add(rand.nextInt(10));
+    for (;;) {
+      distinctIds.add(1 + rand.nextInt(11 - 1));
       randomArray = distinctIds.toSet().toList();
       if (randomArray.length < 10) {
         continue;
@@ -124,7 +123,7 @@ class _QuizpageState extends State<Quizpage> {
     }
   }
 
-  void starttimer() {
+  void starttimer() async {
     const onesec = Duration(seconds: 1);
     Timer.periodic(onesec, (Timer t) {
       setState(() {
@@ -148,9 +147,10 @@ class _QuizpageState extends State<Quizpage> {
       if (j < 10) {
         i = randomArray[j];
         j++;
+        print(j.toString());
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => Resultpage(key: UniqueKey(), marks: marks),
+          builder: (context) => ResultPage(marks: marks),
         ));
       }
       btncolor["a"] = Colors.indigoAccent;
@@ -222,8 +222,8 @@ class _QuizpageState extends State<Quizpage> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return WillPopScope(
-      onWillPop: () async {
-        return await showDialog(
+      onWillPop: () {
+        return showDialog(
             context: context,
             builder: (context) => AlertDialog(
                   title: Text(
@@ -232,16 +232,16 @@ class _QuizpageState extends State<Quizpage> {
                   content: Text("You Can't Go Back At This Stage."),
                   actions: <Widget>[
                     TextButton(
-                      child: Text(
-                        'Ok',
-                      ),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                    ),
+                      child: Text(
+                        'Ok',
+                      ),
+                    )
                   ],
-                ));
-      },
+                )).then((value) => value as bool);
+      } as Future<bool> Function()?,
       child: Scaffold(
         body: Column(
           children: <Widget>[

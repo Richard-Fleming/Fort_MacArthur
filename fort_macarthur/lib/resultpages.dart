@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/educationpage.dart';
 
-class Resultpage extends StatefulWidget {
+class ResultPage extends StatefulWidget {
   int marks;
-  Resultpage({required Key key, required this.marks}) : super(key: key);
+  ResultPage({Key? /*?*/ key, /*required*/ required this.marks})
+      : super(key: key);
   @override
-  _ResultpageState createState() => _ResultpageState(marks);
+  _ResultPageState createState() => _ResultPageState(marks);
 }
 
-class _ResultpageState extends State<Resultpage> {
+class _ResultPageState extends State<ResultPage> {
   List<String> images = [
-    "assets/images/quiz/Perfect.jpg",
+    "assets/images/quiz/perfect.png",
     "assets/images/quiz/good.png",
     "assets/images/quiz/fail.png",
   ];
 
-  String message = "";
-  String image = "";
+  late String message;
+  late String image;
 
   @override
   void initState() {
     if (marks < 20) {
       image = images[2];
       message = "You Should Try Hard..\n" + "You Scored $marks";
-    } else if (marks < 35) {
+    } else if (marks < 45) {
       image = images[1];
       message = "You Can Do Better..\n" + "You Scored $marks";
     } else {
@@ -34,7 +35,7 @@ class _ResultpageState extends State<Resultpage> {
   }
 
   int marks;
-  _ResultpageState(this.marks);
+  _ResultPageState(this.marks);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
