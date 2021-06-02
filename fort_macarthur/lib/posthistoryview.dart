@@ -42,6 +42,28 @@ class _PostHistoryState extends State<PostHistoryPage> {
     "assets/images/battery/antiair.jpg",
   ];
 
+  List<String?> phDescriptions = [
+    // String? allows for nullable objects
+    "Battery Osgood-Farley was constructed during the years 1916-1919 under the fortification program outlined by the Taft Board Report of 1906. Although constructed as a single two-gun emplacement, each gun was originally designated as a separate tactical battery, hence the two names. Later, the battery was considered to be a single tactical unit.",
+    "Battery Leary - Merriam was constructed during the years 1916-1919 under the fortification program outlined by the Taft Board Report of 1906. Although constructed as a single two-gun emplacement, each gun was originally designated as a separate tactical battery, hence the two names. Later, the battery was considered to be a single tactical unit.",
+    "Construction of batteries John Barlow and Rufus Saxton commenced on April 1, 1915 and was completed on June 27, 1919. The excavation for the structure was done almost entirely by hand labor due to a lack of available heavy machinery in the area. The powder and shell magazines are located underground to the front of the building and are accessed by a series of doors located between the guns.",
+    "Battery Lodor is the tale of three batteries which began life on a small sprit of land between Terminal Island and Deadmans Island in the Los Angeles Harbor. Constructed commenced on April 15, 1916 and the battery was finished and operational by July 31, 1917. Four, three-inch model 1903 guns were mounted along with several searchlights to serve as a rapid fire solution for the proposed controlled minefield, just inside the harbor entrance.",
+    "During the first world war the US Army started looking at new ways to provide heavy mobile fire power to the Coast Artillery service. The use of railway mounted guns was nothing new at the time, the practice stated during the Civil war with both union and confederate forces mounting heavy cannons behind large wooden shields.",
+    "After war broke out on December 7th 1941, the War Department made an immediate effort to shore up the aging defenses around the Los Angeles harbor in preparation for a possible west coast attack by the Japanese. Part of this build up involved the transfer of two eight inch railway guns from the east coast.",
+    "By the beginning of World War Two, the disappearing guns originally installed on the upper reservation of Fort MacArthur were considered to be obsolete due to a lack of range and overhead protection.",
+    "About 20 miles to the south of Fort MacArthur on the inland side of Pacific Coast Highway lies the former Bolsa Chica Military Reservation. This facility was purchased by the US Army as the location for two new state-of-the-art batteries designed to cover the southern approaches to the Los Angeles - Long Beach harbor areas.",
+    "Beginning in about 1940 the United States began to take another serious look at the state of it's coastal defenses. As a result of that re-evaluation dozens of forts around the country were slated for modernization.",
+    "Beginning in about 1940 the United States began to take another serious look at the state of it's coastal defenses. As a result of that re-evaluation dozens of forts around the country became slated for modernization.",
+    "The third and final six-inch battery to be built for the harbor defenses of Los Angeles was Battery 242 at the Bolsa Chica Military Reservation in Huntington Beach.",
+    "Technically known as the 90mm M3 fixed mount, the AMTB gun was the fixed mount version of the army’s 90mm anti-aircraft gun. Used in the coast defense roll, the 90mm M3 was supplied with a heavy shield on three sides and remote fire control for use against high speed craft. Due to their speed and great maneuverability, it was feared that these craft could slip past the large coast defense guns and possibly attack the inner harbor.",
+    "Twenty-four 155mm mobile guns were used in the Los Angeles area for beach defenses during WW II. These guns were moved by truck and could be rapidly set up on simple concrete circles known as Panama Mounts designed to stabilize the guns and provide a fixed location to aide in fire control.",
+    "During the earliest days the twentieth century, not much thought was given to the idea of defending the fort against attack from the sky. At that time, powered flight was limited to a few slow moving airships and aircraft were made mostly of wood and canvas.",
+  ];
+
+  List<List<String?>> phPhotos = [
+    [],
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -56,19 +78,13 @@ class _PostHistoryState extends State<PostHistoryPage> {
         body: Container(
             alignment: Alignment.center,
             child: ListView(children: <Widget>[
-              createDouble(phTitles[0], phImages[0], phTitles[1], phImages[1]),
-              createDouble(phTitles[2], phImages[2], phTitles[3], phImages[3]),
-              createDouble(phTitles[4], phImages[4], phTitles[5], phImages[5]),
-              createDouble(phTitles[6], phImages[6], phTitles[7], phImages[7]),
-              createDouble(phTitles[8], phImages[8], phTitles[9], phImages[9]),
-              createDouble(
-                  phTitles[10], phImages[10], phTitles[11], phImages[11]),
-              createDouble(
-                  phTitles[12], phImages[12], phTitles[13], phImages[13]),
+              for (int i = 0; i < phTitles.length; i += 2)
+                createDouble(phTitles[i], phImages[i], phDescriptions[i],
+                    phTitles[i + 1], phImages[i + 1], phDescriptions[i + 1])
             ])));
   }
 
-  createCard(title, mainImage) {
+  createCard(title, mainImage, description) {
     return Container(
         width: Device.width / 5.3,
         height: Device.height / 8.5,
@@ -76,7 +92,7 @@ class _PostHistoryState extends State<PostHistoryPage> {
           child: InkWell(
             splashColor: Colors.blue.withAlpha(30),
             onTap: () {
-              createOverlay(title, mainImage);
+              createOverlay(title, mainImage, description);
             },
             child: Column(
               children: [
@@ -91,20 +107,25 @@ class _PostHistoryState extends State<PostHistoryPage> {
         ));
   }
 
-  createOverlay(title, mainImage) {
+  createOverlay(title, mainImage, description) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                PostHistoryView(title: title, mainImage: mainImage)));
+            builder: (context) => PostHistoryView(
+                  title: title,
+                  mainImage: mainImage,
+                  photos: [mainImage],
+                  historyDescription: description,
+                )));
   }
 
-  createDouble(titleOne, imageOne, titleTwo, imageTwo) {
+  createDouble(
+      titleOne, imageOne, descriptionOne, titleTwo, imageTwo, descriptionTwo) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          createCard(titleOne, imageOne),
-          createCard(titleTwo, imageTwo),
+          createCard(titleOne, imageOne, descriptionOne),
+          createCard(titleTwo, imageTwo, descriptionTwo),
         ]);
   }
 
