@@ -25,7 +25,22 @@ class _PostHistoryState extends State<PostHistoryPage> {
     "155 GPF Mobile Guns",
     "Anti-Aircraft (Fixed and Mobile)",
   ];
-  List<String> phImages = [];
+  List<String> phImages = [
+    "assets/images/battery/batteryOsgood.jpg",
+    "assets/images/battery/Leary.jpg",
+    "assets/images/battery/SaxtonGun.jpg",
+    "assets/images/battery/Lodor.jpg",
+    "assets/images/battery/Irwin.png",
+    "assets/images/battery/Eubanks.jpg",
+    "assets/images/battery/127bunker.jpg",
+    "assets/images/battery/Battery128.jpg",
+    "assets/images/battery/240barnes.jpg",
+    "assets/images/battery/241gun.jpg",
+    "assets/images/battery/242gun.jpg",
+    "assets/images/battery/AMTB.jpg",
+    "assets/images/battery/155mmFieldGuns.jpg",
+    "assets/images/battery/antiair.jpg",
+  ];
 
   @override
   void initState() {
@@ -41,20 +56,15 @@ class _PostHistoryState extends State<PostHistoryPage> {
         body: Container(
             alignment: Alignment.center,
             child: ListView(children: <Widget>[
-              createDouble(phTitles[0], "assets/images/batteryOsgood.jpg",
-                  phTitles[1], "assets/images/batteryOsgood.jpg"),
-              createDouble(phTitles[2], "assets/images/batteryOsgood.jpg",
-                  phTitles[3], "assets/images/batteryOsgood.jpg"),
-              createDouble(phTitles[4], "assets/images/batteryOsgood.jpg",
-                  phTitles[5], "assets/images/batteryOsgood.jpg"),
-              createDouble(phTitles[6], "assets/images/batteryOsgood.jpg",
-                  phTitles[7], "assets/images/batteryOsgood.jpg"),
-              createDouble(phTitles[8], "assets/images/batteryOsgood.jpg",
-                  phTitles[9], "assets/images/batteryOsgood.jpg"),
-              createDouble(phTitles[10], "assets/images/batteryOsgood.jpg",
-                  phTitles[11], "assets/images/batteryOsgood.jpg"),
-              createDouble(phTitles[12], "assets/images/batteryOsgood.jpg",
-                  phTitles[13], "assets/images/batteryOsgood.jpg"),
+              createDouble(phTitles[0], phImages[0], phTitles[1], phImages[1]),
+              createDouble(phTitles[2], phImages[2], phTitles[3], phImages[3]),
+              createDouble(phTitles[4], phImages[4], phTitles[5], phImages[5]),
+              createDouble(phTitles[6], phImages[6], phTitles[7], phImages[7]),
+              createDouble(phTitles[8], phImages[8], phTitles[9], phImages[9]),
+              createDouble(
+                  phTitles[10], phImages[10], phTitles[11], phImages[11]),
+              createDouble(
+                  phTitles[12], phImages[12], phTitles[13], phImages[13]),
             ])));
   }
 
