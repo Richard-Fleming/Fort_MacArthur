@@ -3,8 +3,7 @@ import 'package:fort_macarthur/educationpage.dart';
 
 class ResultPage extends StatefulWidget {
   int marks;
-  ResultPage({Key? /*?*/ key, /*required*/ required this.marks})
-      : super(key: key);
+  ResultPage({Key? key, required this.marks}) : super(key: key);
   @override
   _ResultPageState createState() => _ResultPageState(marks);
 }

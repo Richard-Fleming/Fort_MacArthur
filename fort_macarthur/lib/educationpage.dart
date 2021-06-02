@@ -23,19 +23,19 @@ List<String> des = [
 
 List imageList = [
   Slide(
-    imagePath: "assets/images/Battery Osgood - Farley slides/Slide1.png",
+    imagePath: "assets/images/Battery Osgood - Farley slides/3.0x/Slide1.png",
   ),
   Slide(
-    imagePath: "assets/images/Battery Osgood - Farley slides/Slide2.png",
+    imagePath: "assets/images/Battery Osgood - Farley slides/3.0x/Slide2.png",
   ),
   Slide(
-    imagePath: "assets/images/Battery Osgood - Farley slides/Slide3.png",
+    imagePath: "assets/images/Battery Osgood - Farley slides/3.0x/Slide3.png",
   ),
   Slide(
-    imagePath: "assets/images/Battery Osgood - Farley slides/Slide4.png",
+    imagePath: "assets/images/Battery Osgood - Farley slides/3.0x/Slide4.png",
   ),
   Slide(
-    imagePath: "assets/images/Battery Osgood - Farley slides/Slide5.png",
+    imagePath: "assets/images/Battery Osgood - Farley slides/3.0x/Slide5.png",
   )
 ];
 
@@ -191,10 +191,10 @@ Widget _sliderSlideDetails() {
                             Card(
                               child: CarouselSlider(
                                 options: CarouselOptions(
-                                  height: 400.0,
+                                  height: 300,
+                                  viewportFraction: 0.9,
                                   autoPlay: false,
-                                  aspectRatio: 1.0,
-                                  viewportFraction: .9,
+                                  //enlargeCenterPage: true,
                                 ),
                                 items: imageList.map((image) {
                                   return Builder(

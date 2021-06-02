@@ -54,7 +54,7 @@ class _QuizpageState extends State<Quizpage> {
   Color right = Colors.green;
   Color wrong = Colors.red;
   int marks = 0;
-  int? i = 1;
+  late int i;
   bool disableAnswer = false;
   // extra varibale to iterate
   int j = 1;
@@ -79,8 +79,11 @@ class _QuizpageState extends State<Quizpage> {
     var distinctIds = [];
     var rand = new Random();
     for (;;) {
-      distinctIds.add(1 + rand.nextInt(11 - 1));
+      distinctIds.add(
+        rand.nextInt(10 - 0),
+      );
       randomArray = distinctIds.toSet().toList();
+      i = randomArray[0];
       if (randomArray.length < 10) {
         continue;
       } else {
@@ -130,7 +133,7 @@ class _QuizpageState extends State<Quizpage> {
       if (j < 10) {
         i = randomArray[j];
         j++;
-        print("The question number is:  $j");
+        print("The question number is:  $j and the index value of this is $i");
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => ResultPage(marks: marks),
