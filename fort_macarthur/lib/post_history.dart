@@ -5,15 +5,15 @@ import 'package:fort_macarthur/device.dart';
 class PostHistoryView extends StatelessWidget {
   final String title;
   final String mainImage;
-  final bool? hasHistory;
-  final bool? hasPhotos;
+  final String? historyDescription;
+  final List<String>? photos;
 
   PostHistoryView(
       {Key? key,
       required this.title,
       required this.mainImage,
-      this.hasHistory,
-      this.hasPhotos})
+      this.historyDescription,
+      this.photos})
       : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class PostHistoryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Device.backroundCOLOR,
       appBar: AppBar(
-        title: Text("Battery " + title),
+        title: Text(title),
       ),
       body: Column(
         children: [
@@ -33,7 +33,7 @@ class PostHistoryView extends StatelessWidget {
             height: 15,
           ),
           Text(
-            "Battery " + title,
+            title,
             style: TextStyle(
               fontSize: 20,
             ),
@@ -46,21 +46,23 @@ class PostHistoryView extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisCount: 2,
                 children: [
-                  if (hasHistory!)
+                  if (historyDescription != null)
                     InfoBox(
                       color: Colors.brown.shade300,
                       iconData: Icons.article_outlined,
                       label: "History",
                       onTap: () {
-                        createOverlay(
-                            this.mainImage, "Osgood Battery", context);
+                        createDescription(title, historyDescription, context);
                       },
                     ),
-                  if (hasPhotos!)
+                  if (photos != null)
                     InfoBox(
                       color: Colors.brown.shade300,
                       iconData: Icons.photo,
                       label: "Photos",
+                      onTap: () {
+                        createOverlay(this.mainImage, title, context);
+                      },
                     ),
                 ],
               ),
@@ -96,6 +98,27 @@ class PostHistoryView extends StatelessWidget {
                       child: Image.asset(image!, scale: 0.3),
                     ),
                   ],
+                ))));
+  }
+
+  createDescription(title, description, BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Device.backroundCOLOR,
+                  title: Text(
+                    title! + " History",
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Futura"),
+                  ),
+                ),
+                body: Stack(
+                  alignment: Alignment.center,
+                  children: [Text(description)],
                 ))));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/post_history.dart';
+import 'package:fort_macarthur/posthistoryview.dart';
 import 'homepage.dart';
 import 'testpage.dart';
 import 'filmLocation.dart';
@@ -31,11 +31,7 @@ class _ViewPageState extends State<Viewpage> {
     FilmLocation(),
     ProjectsPage(),
     AboutUsPage(),
-    PostHistoryView(
-        title: "Osgood",
-        mainImage: "assets/images/batteryOsgood.jpg",
-        hasHistory: false,
-        hasPhotos: true),
+    PostHistoryPage(),
   ]; // add your pages here
 
   @override
