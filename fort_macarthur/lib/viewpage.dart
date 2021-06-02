@@ -22,7 +22,7 @@ class _ViewPageState extends State<Viewpage> {
     "Film Location",
     "Projects",
     "Get Educated"
-    "About Us"
+        "About Us"
   ];
   List<Widget> pagelist = [
     HomePage(),
@@ -30,7 +30,7 @@ class _ViewPageState extends State<Viewpage> {
     VirtualTours(),
     FilmLocation(),
     ProjectsPage(),
-    EducationPage()
+    EducationPage(),
     AboutUsPage(),
   ]; // add your pages here
 

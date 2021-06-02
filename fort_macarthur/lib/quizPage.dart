@@ -8,7 +8,7 @@ import 'package:fort_macarthur/resultpages.dart';
 class GetJson extends StatelessWidget {
   // accept the langname as a parameter
 
-  String battname;
+  final String battname;
   GetJson(this.battname);
   late String assettoload;
 
@@ -90,23 +90,6 @@ class _QuizpageState extends State<Quizpage> {
     print(randomArray);
   }
 
-  //   var random_array;
-  //   var distinctIds = [];
-  //   var rand = new Random();
-  //     for (int i = 0; ;) {
-  //     distinctIds.add(rand.nextInt(10));
-  //       random_array = distinctIds.toSet().toList();
-  //       if(random_array.length < 10){
-  //         continue;
-  //       }else{
-  //         break;
-  //       }
-  //     }
-  //   print(random_array);
-
-  // ----- END OF CODE
-  // var random_array = [1, 6, 7, 2, 4, 10, 8, 3, 9, 5];
-
   // overriding the initstate function to start timer as this screen is created
   @override
   void initState() {
@@ -147,7 +130,7 @@ class _QuizpageState extends State<Quizpage> {
       if (j < 10) {
         i = randomArray[j];
         j++;
-        print(j.toString());
+        print("The question number is:  $j");
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => ResultPage(marks: marks),
@@ -241,7 +224,7 @@ class _QuizpageState extends State<Quizpage> {
                     )
                   ],
                 )).then((value) => value as bool);
-      } as Future<bool> Function()?,
+      },
       child: Scaffold(
         body: Column(
           children: <Widget>[
