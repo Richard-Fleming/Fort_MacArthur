@@ -99,7 +99,7 @@ class _FilmLocationState extends State<FilmLocation> {
   createCard(image, description) {
     return Container(
         width: Device.width / 5.3,
-        height: Device.height / 9.0,
+        height: Device.height / 8.5,
         child: Card(
           child: InkWell(
             splashColor: Colors.blue.withAlpha(30),

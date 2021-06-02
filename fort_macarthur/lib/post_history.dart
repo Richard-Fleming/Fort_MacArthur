@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:fort_macarthur/battery_details.dart';
+import 'package:fort_macarthur/battery_history.dart';
+import 'package:fort_macarthur/image_grid.dart';
 import 'package:fort_macarthur/info_box.dart';
 import 'package:fort_macarthur/device.dart';
+import 'package:fort_macarthur/panoramaView.dart';
 
 class PostHistoryView extends StatelessWidget {
-  final String title;
+  final PanoData data;
 
-  PostHistoryView({Key? key, required this.title}) : super(key: key);
+  PostHistoryView({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Device.backroundCOLOR,
       appBar: AppBar(
-        title: Text(title + " Battery"),
+        title: Text(data.title + " Battery"),
       ),
       body: Column(
         children: [
@@ -21,7 +25,7 @@ class PostHistoryView extends StatelessWidget {
             height: 10,
           ),
           Text(
-            title + " Battery",
+            data.title + " Battery",
             style: TextStyle(
               fontSize: 20,
             ),
@@ -34,26 +38,59 @@ class PostHistoryView extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisCount: 3,
                 children: [
-                  InfoBox(
-                    color: Colors.brown.shade300,
-                    iconData: Icons.article_outlined,
-                    label: "History",
-                  ),
-                  InfoBox(
-                    color: Colors.brown.shade300,
-                    iconData: Icons.analytics_outlined,
-                    label: "Details",
-                  ),
-                  InfoBox(
-                    color: Colors.brown.shade300,
-                    iconData: Icons.photo,
-                    label: "Slideshow",
-                  ),
-                  InfoBox(
-                    color: Colors.brown.shade300,
-                    iconData: Icons.military_tech,
-                    label: "Artifacts",
-                  ),
+                  data.history != null
+                      ? InfoBox(
+                          color: Colors.brown.shade300,
+                          iconData: Icons.article_outlined,
+                          label: "History",
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BatteryHistory(
+                                        history: data.history!)));
+                          },
+                        )
+                      : Container(),
+                  data.details != null
+                      ? InfoBox(
+                          color: Colors.brown.shade300,
+                          iconData: Icons.analytics_outlined,
+                          label: "Details",
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BatteryDetails(
+                                        details: data.details!)));
+                          },
+                        )
+                      : Container(),
+                  data.images != null
+                      ? InfoBox(
+                          color: Colors.brown.shade300,
+                          iconData: Icons.photo,
+                          label: "Slideshow",
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ImageGridView(
+                                          data: data.images!,
+                                          elevation: 2.0,
+                                          imageFit: BoxFit.fill,
+                                        )));
+                          },
+                        )
+                      : Container(),
+                  data.temp != null
+                      ? InfoBox(
+                          color: Colors.brown.shade300,
+                          iconData: Icons.military_tech,
+                          label: "Artifacts",
+                          onTap: () {},
+                        )
+                      : Container(),
                 ],
               ),
             ),

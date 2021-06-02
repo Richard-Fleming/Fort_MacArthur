@@ -79,7 +79,9 @@ class CustomDrawer extends StatelessWidget {
             Icons.cast_for_education,
             'Get Educated',
             () => action(context, 5),
-          )
+          ),
+              
+          CustomListTiles(Icons.bookmarks, 'About us', () => action(context, 6),)
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'homepage.dart';
 import 'testpage.dart';
 import 'filmLocation.dart';
 import 'customDrawer.dart';
+import 'aboutus.dart';
 import 'package:fort_macarthur/virtual_tours.dart';
 import 'package:fort_macarthur/projects.dart';
 
@@ -21,6 +22,7 @@ class _ViewPageState extends State<Viewpage> {
     "Film Location",
     "Projects",
     "Get Educated"
+    "About Us"
   ];
   List<Widget> pagelist = [
     HomePage(),
@@ -29,6 +31,7 @@ class _ViewPageState extends State<Viewpage> {
     FilmLocation(),
     ProjectsPage(),
     EducationPage()
+    AboutUsPage(),
   ]; // add your pages here
 
   @override
