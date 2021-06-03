@@ -11,6 +11,8 @@ class GetJson extends StatelessWidget {
   final String battname;
   GetJson(this.battname);
   late String assettoload;
+  late int i;
+  var randomArray;
 
   // a function
   // sets the asset to a particular JSON file
@@ -18,62 +20,12 @@ class GetJson extends StatelessWidget {
   setasset() {
     if (battname == "Battery Osgood - Farley") {
       assettoload = "assets/Quiz/Battery_Osgood.json";
+    } else if (battname == "Battery Barlow - Saxton") {
+      assettoload = "assets/Quiz/Battery_Barlow_Saxton.json";
+    } else if (battname == "Battery Leary - Merriam") {
+      assettoload = "assets/Quiz/Battery_Leary_Merriam.json";
     }
   }
-
-  @override
-  Widget build(BuildContext context) {
-    // this function is called before the build so that
-    // the string assettoload is avialable to the DefaultAssetBuilder
-    setasset();
-    // and now we return the FutureBuilder to load and decode JSON
-    return FutureBuilder(
-      future:
-          DefaultAssetBundle.of(context).loadString(assettoload, cache: false),
-      builder: (context, snapshot) {
-        List mydata = json.decode(snapshot.data.toString());
-        return Quizpage(key: UniqueKey(), mydata: mydata);
-      },
-    );
-  }
-}
-
-class Quizpage extends StatefulWidget {
-  final List mydata;
-
-  Quizpage({Key? key, /*required*/ required this.mydata}) : super(key: key);
-  @override
-  _QuizpageState createState() => _QuizpageState(mydata);
-}
-
-class _QuizpageState extends State<Quizpage> {
-  final List mydata;
-  _QuizpageState(this.mydata);
-
-  Color colortoshow = Colors.indigoAccent;
-  Color right = Colors.green;
-  Color wrong = Colors.red;
-  int marks = 0;
-  late int i;
-  bool disableAnswer = false;
-  // extra varibale to iterate
-  int j = 1;
-  int timer = 30;
-  String showtimer = "30";
-  var randomArray;
-
-  Map<String, Color> btncolor = {
-    "a": Colors.indigoAccent,
-    "b": Colors.indigoAccent,
-    "c": Colors.indigoAccent,
-    "d": Colors.indigoAccent,
-  };
-
-  bool canceltimer = false;
-
-  // code inserted for choosing questions randomly
-  // to create the array elements randomly use the dart:math module
-  // -----     CODE TO GENERATE ARRAY RANDOMLY
 
   genrandomarray() {
     var distinctIds = [];
@@ -93,11 +45,83 @@ class _QuizpageState extends State<Quizpage> {
     print(randomArray);
   }
 
+  @override
+  Widget build(BuildContext context) {
+    genrandomarray();
+    // this function is called before the build so that
+    // the string assettoload is avialable to the DefaultAssetBuilder
+    setasset();
+    // and now we return the FutureBuilder to load and decode JSON
+    return FutureBuilder(
+      future:
+          DefaultAssetBundle.of(context).loadString(assettoload, cache: false),
+      builder: (context, snapshot) {
+        List? mydata = json.decode(snapshot.data.toString());
+        if (mydata == null) {
+          return Scaffold(
+            body: Center(
+              child: Text(
+                "Loading",
+              ),
+            ),
+          );
+        }
+        return Quizpage(mydata: mydata, i: i, randomArray: randomArray);
+      },
+    );
+  }
+}
+
+class Quizpage extends StatefulWidget {
+  final List mydata;
+  final int i;
+  final List randomArray;
+
+  Quizpage(
+      {Key? key,
+      required this.mydata,
+      required this.i,
+      required this.randomArray})
+      : super(key: key);
+  @override
+  _QuizpageState createState() => _QuizpageState(mydata, i, randomArray);
+}
+
+class _QuizpageState extends State<Quizpage> {
+  final List mydata;
+  late int i;
+  final List randomArray;
+  _QuizpageState(this.mydata, this.i, this.randomArray);
+
+  Color colortoshow = Colors.indigoAccent;
+  Color right = Colors.green;
+  Color wrong = Colors.red;
+  int marks = 0;
+  bool disableAnswer = false;
+
+  // extra varibale to iterate
+  int j = 1;
+  int timer = 30;
+  String showtimer = "30";
+
+  Map<String, Color> btncolor = {
+    "a": Colors.indigoAccent,
+    "b": Colors.indigoAccent,
+    "c": Colors.indigoAccent,
+    "d": Colors.indigoAccent,
+  };
+
+  bool canceltimer = false;
+
+  // code inserted for choosing questions randomly
+  // to create the array elements randomly use the dart:math module
+  // -----     CODE TO GENERATE ARRAY RANDOMLY
+
   // overriding the initstate function to start timer as this screen is created
   @override
   void initState() {
     starttimer();
-    genrandomarray();
+
     super.initState();
   }
 
