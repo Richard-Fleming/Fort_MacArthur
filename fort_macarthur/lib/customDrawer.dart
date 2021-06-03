@@ -80,8 +80,8 @@ class CustomDrawer extends StatelessWidget {
             'Get Educated',
             () => action(context, 5),
           ),
-          CustomListTiles(
-              Icons.bookmarks, 'Post History', () => action(context, 6)),
+          CustomListTiles(Icons.manage_search_rounded, 'Post History',
+              () => action(context, 6)),
           CustomListTiles(
               Icons.bookmarks, 'About us', () => action(context, 7)),
         ],
