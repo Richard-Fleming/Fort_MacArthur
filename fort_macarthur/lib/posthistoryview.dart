@@ -127,7 +127,6 @@ class _PostHistoryState extends State<PostHistoryPage> {
   @override
   Widget build(BuildContext context) {
     Device.init();
-
     return Scaffold(
         backgroundColor: Device.backroundCOLOR,
         body: Container(
@@ -148,7 +147,7 @@ class _PostHistoryState extends State<PostHistoryPage> {
 
   createCard(title, mainImage, description, photos) {
     return Container(
-        width: Device.width / 5.3,
+        width: Device.safeBlockHorizontal * 50,
         height: Device.height / 8.5,
         child: Card(
           child: InkWell(
