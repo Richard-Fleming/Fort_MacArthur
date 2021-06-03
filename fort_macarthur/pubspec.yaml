@@ -47,4 +47,8 @@ flutter:
     - assets/
     - assets/logo/
     - assets/images/
+<<<<<<< HEAD
     - assets/images/battery/
+=======
+    - assets/images/osgoodSlideshow/
+>>>>>>> master
