@@ -47,6 +47,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/battery/
     - assets/images/Battery Osgood - Farley slides/
     - assets/images/osgoodSlideshow/
     - assets/images/quiz/

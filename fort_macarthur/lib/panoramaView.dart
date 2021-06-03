@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/image_grid.dart';
 import 'package:panorama/panorama.dart';
-import 'package:fort_macarthur/post_history.dart';
+import 'package:fort_macarthur/post_hist_panorama.dart';
 
 class PanoView extends StatelessWidget {
   final PanoData data;
