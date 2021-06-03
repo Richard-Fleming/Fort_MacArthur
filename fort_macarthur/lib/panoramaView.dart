@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/image_grid.dart';
 import 'package:panorama/panorama.dart';
+import 'package:fort_macarthur/post_hist_panorama.dart';
 
 class PanoView extends StatelessWidget {
   final PanoData data;
@@ -24,9 +25,6 @@ class PanoView extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: ElevatedButton.icon(
-<<<<<<< HEAD
-              onPressed: () {},
-=======
               onPressed: () {
                 Navigator.push(
                     context,
@@ -35,7 +33,6 @@ class PanoView extends StatelessWidget {
                               data: data,
                             )));
               },
->>>>>>> master
               icon: Icon(Icons.collections_bookmark),
               label: Text(data.title + " Collection"),
             ),
