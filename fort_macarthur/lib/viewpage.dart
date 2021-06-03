@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fort_macarthur/posthistoryview.dart';
 import 'package:fort_macarthur/educationpage.dart';
 import 'homepage.dart';
 import 'testpage.dart';
@@ -21,8 +22,9 @@ class _ViewPageState extends State<Viewpage> {
     "Virtual Tours",
     "Film Location",
     "Projects",
-    "Get Educated"
-        "About Us"
+    "Get Educated",
+    "Post History",
+    "About Us",
   ];
   List<Widget> pagelist = [
     HomePage(),
@@ -31,6 +33,7 @@ class _ViewPageState extends State<Viewpage> {
     FilmLocation(),
     ProjectsPage(),
     EducationPage(),
+    PostHistoryPage(),
     AboutUsPage(),
   ]; // add your pages here
 
