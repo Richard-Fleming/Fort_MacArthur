@@ -61,7 +61,7 @@ class PostHistoryView extends StatelessWidget {
                       iconData: Icons.photo,
                       label: "Photos",
                       onTap: () {
-                        createOverlay(this.mainImage, title, context);
+                        gotoPhotos(context);
                       },
                     ),
                 ],
@@ -73,7 +73,7 @@ class PostHistoryView extends StatelessWidget {
     );
   }
 
-  createOverlay(image, description, BuildContext context) {
+  gotoPhotos(BuildContext context) {
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -81,24 +81,36 @@ class PostHistoryView extends StatelessWidget {
                 appBar: AppBar(
                   backgroundColor: Device.backroundCOLOR,
                   title: Text(
-                    description!,
+                    "Click on a Card to view the Photo!",
                     style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Futura"),
                   ),
                 ),
-                body: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    InteractiveViewer(
-                      constrained: false,
-                      minScale: 1.0,
-                      maxScale: 8.0,
-                      child: Image.asset(image!, scale: 0.3),
-                    ),
-                  ],
-                ))));
+                body: Container(
+                    alignment: Alignment.center,
+                    child: ListView(children: handleLoop(context))))));
+  }
+
+  handleLoop(context) {
+    List<Widget> cards = [];
+
+    if (this.photos!.length % 2 == 0) {
+      // will go through if list is even
+      for (int i = 0; i < this.photos!.length; i += 2)
+        cards.add(createDouble(this.photos![i], this.photos![i + 1], context));
+    } else {
+      // if list is odd we will need to stop before we over reach
+      for (int i = 0; i < this.photos!.length; i += 2) {
+        if (i + 1 < this.photos!.length) // we can keep going if true
+          cards
+              .add(createDouble(this.photos![i], this.photos![i + 1], context));
+        else // otherwise if i goes past the length, make the second photo null
+          cards.add(createDouble(this.photos![i], null, context));
+      }
+    }
+    return cards;
   }
 
   createDescription(title, description, BuildContext context) {
@@ -119,6 +131,73 @@ class PostHistoryView extends StatelessWidget {
                 body: Stack(
                   alignment: Alignment.center,
                   children: [Text(description)],
+                ))));
+  }
+
+  createDouble(photoOne, photoTwo, context) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          createCard(photoOne, context),
+          createCard(photoTwo, context),
+        ]);
+  }
+
+  createCard(photo, context) {
+    if (photo != null) {
+      return Container(
+          width: Device.width / 5.3,
+          height: Device.height / 8.5,
+          child: Card(
+            child: InkWell(
+              splashColor: Colors.blue.withAlpha(30),
+              onTap: () {
+                createOverlay(photo, title, context);
+              },
+              child: Column(
+                children: [
+                  Image.asset(photo, fit: BoxFit.fitWidth),
+                  Text(
+                    this.title,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          ));
+    } else {
+      return Container(
+          width: Device.width / 5.3,
+          height: Device.height / 8.5,
+          child: Card());
+    }
+  }
+
+  createOverlay(photo, title, BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Device.backroundCOLOR,
+                  title: Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Futura"),
+                  ),
+                ),
+                body: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    InteractiveViewer(
+                      constrained: false,
+                      minScale: 1.0,
+                      maxScale: 8.0,
+                      child: Image.asset(photo!, scale: 0.3),
+                    ),
+                  ],
                 ))));
   }
 }

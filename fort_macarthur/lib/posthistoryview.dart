@@ -61,7 +61,62 @@ class _PostHistoryState extends State<PostHistoryPage> {
   ];
 
   List<List<String?>> phPhotos = [
-    [],
+    [
+      // Osgood
+      "assets/images/battery/batteryOsgood.jpg",
+    ],
+    [
+      // Leary
+      "assets/images/battery/Leary.jpg",
+    ],
+    [
+      // Saxton
+      "assets/images/battery/SaxtonGun.jpg",
+    ],
+    [
+      // Lodor
+      "assets/images/battery/Lodor.jpg",
+    ],
+    [
+      // Irwin / Erwin
+      "assets/images/battery/Irwin.png",
+    ],
+    [
+      // Eubanks
+      "assets/images/battery/Eubanks.jpg",
+    ],
+    [
+      // 127
+      "assets/images/battery/127bunker.jpg",
+    ],
+    [
+      // 128
+      "assets/images/battery/Battery128.jpg",
+    ],
+    [
+      // 240
+      "assets/images/battery/240barnes.jpg",
+    ],
+    [
+      // 241
+      "assets/images/battery/241gun.jpg",
+    ],
+    [
+      // 242
+      "assets/images/battery/242gun.jpg",
+    ],
+    [
+      // AMTB
+      "assets/images/battery/AMTB.jpg",
+    ],
+    [
+      // 155mm Field
+      "assets/images/battery/155mmFieldGuns.jpg",
+    ],
+    [
+      // Anti Air Missiles
+      "assets/images/battery/antiair.jpg",
+    ],
   ];
 
   @override
@@ -79,12 +134,19 @@ class _PostHistoryState extends State<PostHistoryPage> {
             alignment: Alignment.center,
             child: ListView(children: <Widget>[
               for (int i = 0; i < phTitles.length; i += 2)
-                createDouble(phTitles[i], phImages[i], phDescriptions[i],
-                    phTitles[i + 1], phImages[i + 1], phDescriptions[i + 1])
+                createDouble(
+                    phTitles[i],
+                    phImages[i],
+                    phDescriptions[i],
+                    phPhotos[i],
+                    phTitles[i + 1],
+                    phImages[i + 1],
+                    phDescriptions[i + 1],
+                    phPhotos[i + 1])
             ])));
   }
 
-  createCard(title, mainImage, description) {
+  createCard(title, mainImage, description, photos) {
     return Container(
         width: Device.width / 5.3,
         height: Device.height / 8.5,
@@ -92,7 +154,7 @@ class _PostHistoryState extends State<PostHistoryPage> {
           child: InkWell(
             splashColor: Colors.blue.withAlpha(30),
             onTap: () {
-              createOverlay(title, mainImage, description);
+              createOverlay(title, mainImage, description, photos);
             },
             child: Column(
               children: [
@@ -107,25 +169,25 @@ class _PostHistoryState extends State<PostHistoryPage> {
         ));
   }
 
-  createOverlay(title, mainImage, description) {
+  createOverlay(title, mainImage, description, photos) {
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) => PostHistoryView(
                   title: title,
                   mainImage: mainImage,
-                  photos: [mainImage],
+                  photos: photos,
                   historyDescription: description,
                 )));
   }
 
-  createDouble(
-      titleOne, imageOne, descriptionOne, titleTwo, imageTwo, descriptionTwo) {
+  createDouble(titleOne, imageOne, descriptionOne, photosOne, titleTwo,
+      imageTwo, descriptionTwo, photosTwo) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          createCard(titleOne, imageOne, descriptionOne),
-          createCard(titleTwo, imageTwo, descriptionTwo),
+          createCard(titleOne, imageOne, descriptionOne, photosOne),
+          createCard(titleTwo, imageTwo, descriptionTwo, photosTwo),
         ]);
   }
 
