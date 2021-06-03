@@ -14,7 +14,7 @@ class EducationPage extends StatefulWidget {
 }
 
 List<String> images = [
-  "assets/images/batteryOsgood.jpg",
+  "assets/images/battery/batteryOsgood.jpg",
 ];
 
 List<String> des = [
