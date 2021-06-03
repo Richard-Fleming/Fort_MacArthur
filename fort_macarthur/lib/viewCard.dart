@@ -5,7 +5,7 @@ import 'device.dart';
 class ViewCard extends StatelessWidget {
   final String? imgSrc, title, subtitle, desc;
   final Function()? action;
-  final MaterialPageRoute? pageRoute;
+  final TextButton? buttonRoute;
   const ViewCard(
       {Key? key,
       required this.imgSrc,
@@ -13,7 +13,7 @@ class ViewCard extends StatelessWidget {
       required this.subtitle,
       required this.desc,
       this.action,
-      this.pageRoute})
+      this.buttonRoute})
       : super(key: key);
 
   @override
@@ -82,15 +82,9 @@ class ViewCard extends StatelessWidget {
   }
 
   hasLink(context) {
-    if (pageRoute != null) {
-      return ButtonBar(alignment: MainAxisAlignment.end, children: [
-        TextButton(
-          onPressed: () {
-            Navigator.push(context, pageRoute!);
-          },
-          child: const Text('Learn more'),
-        )
-      ]);
+    if (buttonRoute != null) {
+      return ButtonBar(
+          alignment: MainAxisAlignment.end, children: [buttonRoute!]);
     } else {
       return Text("");
     }

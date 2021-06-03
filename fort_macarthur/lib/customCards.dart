@@ -5,7 +5,7 @@ import 'sizeConstraints.dart';
 class CustomCards extends StatelessWidget {
   final String? title, subtitle, imgSrc, desc;
   final Function()? action;
-  final MaterialPageRoute? pageRoute;
+  final TextButton? buttonRoute;
   const CustomCards(
       {Key? key,
       required this.title,
@@ -13,7 +13,7 @@ class CustomCards extends StatelessWidget {
       required this.imgSrc,
       required this.desc,
       required this.action,
-      required this.pageRoute})
+      required this.buttonRoute})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class CustomCards extends StatelessWidget {
                               subtitle: subtitle!,
                               desc: desc!,
                               action: action,
-                              pageRoute: pageRoute)));
+                              buttonRoute: buttonRoute)));
                 },
                 child: const Text('View'),
               ),
