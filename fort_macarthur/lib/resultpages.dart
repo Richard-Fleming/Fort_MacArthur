@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fort_macarthur/educationpage.dart';
 
 class ResultPage extends StatefulWidget {
   int marks;
@@ -91,9 +90,7 @@ class _ResultPageState extends State<ResultPage> {
               children: <Widget>[
                 OutlinedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => EducationPage(),
-                    ));
+                    Navigator.of(context).pop();
                   },
                   child: Text(
                     "Continue",

@@ -20,7 +20,7 @@ class PostHistoryView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset("assets/images/batteryOsgood.jpg"),
+          Image.asset("assets/images/battery/batteryOsgood.jpg"),
           SizedBox(
             height: 10,
           ),
