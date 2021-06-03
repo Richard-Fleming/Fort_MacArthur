@@ -59,7 +59,7 @@ Widget customcard(
     ),
     child: InkWell(
       onTap: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
+        Navigator.of(context).push(MaterialPageRoute(
           // in changelog 1 we will pass the battname name to ther other widget class
           // this name will be used to open a particular JSON file
           // for a particular battery
