@@ -65,7 +65,11 @@ aboutUsRoute(context) {
   return TextButton(
     onPressed: () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => AboutUsPage()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => AboutUsPage(
+                    inLearnMore: true,
+                  )));
     },
     child: const Text('Learn more'),
   );
