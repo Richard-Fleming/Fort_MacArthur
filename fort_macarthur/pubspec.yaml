@@ -23,9 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  carousel_slider: ^3.0.0
+
+  carousel_slider: ^4.0.0-nullsafety.0
   cupertino_icons: ^1.0.2
-  auto_size_text: ^2.1.0
+  auto_size_text: ^3.0.0-nullsafety.0
   panorama: ^0.4.0
   url_launcher: ^6.0.3
 
@@ -45,7 +46,13 @@ flutter:
 
   assets:
     - assets/
-    - assets/logo/
     - assets/images/
+<<<<<<< HEAD
     - assets/images/battery/
+=======
+    - assets/images/Battery Osgood - Farley slides/
+>>>>>>> master
     - assets/images/osgoodSlideshow/
+    - assets/images/quiz/
+    - assets/logo/
+    - assets/Quiz/
