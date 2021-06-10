@@ -12,6 +12,7 @@ class ImageView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Device.backroundCOLOR,
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen[900],
         title: image.title != null ? Text(image.title!) : Text("Image"),
       ),
       body: InteractiveViewer(
@@ -45,6 +46,7 @@ class ImageGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen[900],
         title: Text("Slideshow"),
       ),
       backgroundColor: Device.backroundCOLOR,
