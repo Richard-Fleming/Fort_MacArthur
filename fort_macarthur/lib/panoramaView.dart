@@ -25,6 +25,14 @@ class PanoView extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: ElevatedButton.icon(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                  (Set<MaterialState> states) {
+                    return Colors
+                        .lightGreen[900]!; // Use the component's default.
+                  },
+                ),
+              ),
               onPressed: () {
                 Navigator.push(
                     context,

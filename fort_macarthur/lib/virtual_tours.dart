@@ -115,6 +115,14 @@ class _VirtualToursState extends State<VirtualTours> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: batteryData
                 .map((data) => ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                          return Colors
+                              .lightGreen[900]!; // Use the component's default.
+                        },
+                      ),
+                    ),
                     onPressed: () {
                       Navigator.push(
                           context,

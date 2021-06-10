@@ -40,8 +40,14 @@ class _ViewPageState extends State<Viewpage> {
   @override
   Widget build(BuildContext content) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.lightGreen[900],
+        accentColor: Colors.lightGreen[900],
+      ),
       home: Scaffold(
-        appBar: AppBar(title: Text(titleBar[index])),
+        appBar: AppBar(
+          title: Text(titleBar[index]),
+        ),
         body: pagelist[index],
         drawer: CustomDrawer(
           (context, i) => {
