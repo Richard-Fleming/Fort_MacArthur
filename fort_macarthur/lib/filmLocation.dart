@@ -17,7 +17,6 @@ class _FilmLocationState extends State<FilmLocation> {
   @override
   Widget build(BuildContext context) {
     Device.init();
-
     return Scaffold(
         backgroundColor: Device.backroundCOLOR,
         body: Container(
@@ -114,25 +113,26 @@ class _FilmLocationState extends State<FilmLocation> {
 
   createCard(image, description) {
     return Container(
-        width: Device.width / 5.3,
-        height: Device.height / 8.5,
-        child: Card(
-          child: InkWell(
-            splashColor: Colors.blue.withAlpha(30),
-            onTap: () {
-              createOverlay(image, description);
-            },
-            child: Column(
-              children: [
-                Image.asset(image, fit: BoxFit.fitWidth),
-                Text(
-                  description,
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
+      width: Device.safeBlockHorizontal * 50,
+      height: Device.height / 8.5,
+      child: Card(
+        child: InkWell(
+          splashColor: Colors.blue.withAlpha(30),
+          onTap: () {
+            createOverlay(image, description);
+          },
+          child: Column(
+            children: [
+              Image.asset(image, fit: BoxFit.fitWidth),
+              Text(
+                description,
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   createOverlay(image, description) {

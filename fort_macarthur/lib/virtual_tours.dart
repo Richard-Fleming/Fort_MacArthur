@@ -11,7 +11,7 @@ class VirtualTours extends StatefulWidget {
 class _VirtualToursState extends State<VirtualTours> {
   final List<PanoData> batteryData = [
     PanoData(
-        title: "Osgood",
+        title: "Osgood-Farley",
         panoPath: "assets/images/osgood_pano.jpg",
         history: "Battery Osgood-Farley was constructed during the years 1916-1919 " +
             "under the fortification program outlined by the Taft Board Report of 1906. " +
@@ -100,7 +100,6 @@ class _VirtualToursState extends State<VirtualTours> {
           ImageGridData(
               imagePath: "assets/images/osgoodSlideshow/TIoperator.jpg")
         ]),
-    PanoData(title: "Farley", panoPath: "assets/images/farley_pano.jpg")
   ];
 
   @override
@@ -115,14 +114,8 @@ class _VirtualToursState extends State<VirtualTours> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: batteryData
                 .map((data) => ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                          return Colors
-                              .lightGreen[900]!; // Use the component's default.
-                        },
-                      ),
-                    ),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.lightGreen[900]),
                     onPressed: () {
                       Navigator.push(
                           context,

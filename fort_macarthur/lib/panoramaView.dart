@@ -12,6 +12,7 @@ class PanoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen[900],
         title: Text("Battery " + data.title),
       ),
       body: Stack(
@@ -25,14 +26,7 @@ class PanoView extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: ElevatedButton.icon(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (Set<MaterialState> states) {
-                    return Colors
-                        .lightGreen[900]!; // Use the component's default.
-                  },
-                ),
-              ),
+              style: ElevatedButton.styleFrom(primary: Colors.lightGreen[900]),
               onPressed: () {
                 Navigator.push(
                     context,
