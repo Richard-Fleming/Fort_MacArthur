@@ -273,8 +273,9 @@ class _QuizpageState extends State<Quizpage> {
                     alignment: Alignment.bottomLeft,
                     child: Text(
                       mydata[0][i.toString()],
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 26.0,
                         color: Colors.white,
                         fontFamily: "Quando",
                       ),
@@ -306,7 +307,7 @@ class _QuizpageState extends State<Quizpage> {
                       child: Text(
                         showtimer,
                         style: TextStyle(
-                          fontSize: 35.0,
+                          fontSize: 55.0,
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
                           fontFamily: 'Times New Roman',
