@@ -15,8 +15,13 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: <Color>[Colors.deepOrange, Colors.orangeAccent])),
+              gradient: LinearGradient(
+                colors: <Color>[
+                  Colors.deepOrange,
+                  Colors.orangeAccent,
+                ],
+              ),
+            ),
             child: Container(
               child: Column(
                 children: <Widget>[
@@ -34,7 +39,7 @@ class CustomDrawer extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(4.0),
                     child: Text(
-                      "Boo",
+                      "Fort MacArthur",
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
                     ),
                   )
@@ -42,6 +47,7 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
+
           // ! add your page to the list
           CustomListTiles(
             Icons.home,

@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'device.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fort_macarthur/resultpages.dart';
@@ -253,54 +255,67 @@ class _QuizpageState extends State<Quizpage> {
                 )).then((value) => value as bool);
       },
       child: Scaffold(
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              flex: 3,
-              child: Container(
-                padding: EdgeInsets.all(15.0),
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  mydata[0][i.toString()],
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: "Quando",
-                  ),
-                ),
-              ),
+        body: Stack(
+          children: [
+            SvgPicture.asset(
+              "assets/images/svg/bg.svg",
+              allowDrawingOutsideViewBox: true,
+              width: Device.safeBlockHorizontal *
+                  250, // ! This is well over what is needed but it does no harm as without the allowDrawingOutsideViewBox and extra width spacing it by default does not fit the screen
+              fit: BoxFit.fill,
             ),
-            Expanded(
-              flex: 6,
-              child: AbsorbPointer(
-                absorbing: disableAnswer,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      choicebutton('a'),
-                      choicebutton('b'),
-                      choicebutton('c'),
-                      choicebutton('d'),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                alignment: Alignment.topCenter,
-                child: Center(
-                  child: Text(
-                    showtimer,
-                    style: TextStyle(
-                      fontSize: 35.0,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Times New Roman',
+            Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    padding: EdgeInsets.all(15.0),
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      mydata[0][i.toString()],
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontFamily: "Quando",
+                      ),
                     ),
                   ),
                 ),
-              ),
+                Expanded(
+                  flex: 6,
+                  child: AbsorbPointer(
+                    absorbing: disableAnswer,
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          choicebutton('a'),
+                          choicebutton('b'),
+                          choicebutton('c'),
+                          choicebutton('d'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    child: Center(
+                      child: Text(
+                        showtimer,
+                        style: TextStyle(
+                          fontSize: 35.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Times New Roman',
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
