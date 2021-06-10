@@ -23,6 +23,14 @@ class _FilmLocationState extends State<FilmLocation> {
             alignment: Alignment.center,
             child: ListView(children: <Widget>[
               ElevatedButton.icon(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                      return Colors
+                          .lightGreen[900]!; // Use the component's default.
+                    },
+                  ),
+                ),
                 icon: Icon(Icons.info),
                 label: Text("Some of our Credits",
                     style: TextStyle(fontSize: 20.0)),
@@ -30,6 +38,14 @@ class _FilmLocationState extends State<FilmLocation> {
                     MaterialPageRoute(builder: (context) => FilmLocCredits())),
               ),
               ElevatedButton.icon(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                      return Colors
+                          .lightGreen[900]!; // Use the component's default.
+                    },
+                  ),
+                ),
                 icon: Icon(Icons.info),
                 label: Text("Available For Productions",
                     style: TextStyle(fontSize: 20.0)),
