@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fort_macarthur/posthistoryview.dart';
 import 'package:fort_macarthur/educationpage.dart';
 import 'homepage.dart';
-import 'testpage.dart';
+
 import 'filmLocation.dart';
 import 'customDrawer.dart';
 import 'aboutus.dart';
@@ -18,7 +18,6 @@ class _ViewPageState extends State<Viewpage> {
   int index = 0;
   List<String> titleBar = [
     "Home",
-    "Test",
     "Virtual Tours",
     "Film Location",
     "Projects",
@@ -28,7 +27,6 @@ class _ViewPageState extends State<Viewpage> {
   ];
   List<Widget> pagelist = [
     HomePage(),
-    TestPage(),
     VirtualTours(),
     FilmLocation(),
     ProjectsPage(),

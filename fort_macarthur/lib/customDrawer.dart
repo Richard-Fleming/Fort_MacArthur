@@ -34,7 +34,7 @@ class CustomDrawer extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(4.0),
                     child: Text(
-                      "test",
+                      "Boo",
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
                     ),
                   )
@@ -42,7 +42,7 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
-          //add your page to the list
+          // ! add your page to the list
           CustomListTiles(
             Icons.home,
             'Home',
@@ -51,39 +51,60 @@ class CustomDrawer extends StatelessWidget {
               0,
             ),
           ),
-          CustomListTiles(
-            Icons.article,
-            'Articles',
-            () => action(context, 1),
-          ),
 
           CustomListTiles(
             Icons.tour,
             'Virtual Tours',
-            () => action(context, 2),
+            () => action(
+              context,
+              1,
+            ),
           ),
 
           CustomListTiles(
             Icons.movie,
             'Film Location',
-            () => action(context, 3),
+            () => action(
+              context,
+              2,
+            ),
           ),
 
           CustomListTiles(
             Icons.construction,
             'Projects',
-            () => action(context, 4),
+            () => action(
+              context,
+              3,
+            ),
           ),
 
           CustomListTiles(
             Icons.cast_for_education,
             'Get Educated',
-            () => action(context, 5),
+            () => action(
+              context,
+              4,
+            ),
           ),
-          CustomListTiles(Icons.manage_search_rounded, 'Post History',
-              () => action(context, 6)),
+
           CustomListTiles(
-              Icons.bookmarks, 'About us', () => action(context, 7)),
+            Icons.manage_search_rounded,
+            'Post History',
+            () => action(
+              context,
+              5,
+            ),
+          ),
+
+          CustomListTiles(
+            Icons.bookmarks,
+            'About Us',
+            () => action(
+              context,
+              6,
+            ),
+          ),
         ],
       ),
     );

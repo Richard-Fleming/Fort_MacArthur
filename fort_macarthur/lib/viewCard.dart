@@ -19,66 +19,74 @@ class ViewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Device.backroundCOLOR,
-          title: Text(
-            this.title!,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+      appBar: AppBar(
+        backgroundColor: Device.backroundCOLOR,
+        title: Text(
+          this.title!,
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: Align(
-            alignment: Alignment.center,
-            child: ListView(children: <Widget>[
-              Container(
-                  child: GestureDetector(
-                      onTap: action, child: Image.asset(imgSrc!))),
-              Align(
+      ),
+      body: Align(
+        alignment: Alignment.center,
+        child: ListView(
+          children: <Widget>[
+            Container(
+              child: GestureDetector(
+                onTap: action,
+                child: Image.asset(imgSrc!),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 10,
+                    SizeConstraint.edgeInsets, 0),
+                child: Text(
+                  title!,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 10,
+                  padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 0,
                       SizeConstraint.edgeInsets, 0),
                   child: Text(
-                    title!,
+                    subtitle!,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 26,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-              Align(
+            ),
+            Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(SizeConstraint.edgeInsets, 0,
-                          SizeConstraint.edgeInsets, 0),
-                      child: Text(
-                        subtitle!,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )),
-              ),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    padding: EdgeInsets.all(SizeConstraint.edgeInsets),
-                    child: Text(
-                      desc!,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )),
-              hasLink(context)
-            ])));
+                  padding: EdgeInsets.all(SizeConstraint.edgeInsets),
+                  child: Text(
+                    desc!,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+            hasLink(context)
+          ],
+        ),
+      ),
+    );
   }
 
   hasLink(context) {
