@@ -28,8 +28,7 @@ class Device {
   static double safeBlockHorizontal = 0.0; // Our positions in that space
   static double safeBlockVertical = 0.0;
 
-  static const Color backroundCOLOR =
-      Color(0xffc5c0ad); // currently grey but liable to change
+  static const Color backroundCOLOR = Color(0xffc5c0ad);
 
   // We need to know what device we are running on
   Device(
