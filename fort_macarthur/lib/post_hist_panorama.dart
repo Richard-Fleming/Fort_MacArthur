@@ -16,6 +16,7 @@ class PostHistoryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Device.backroundCOLOR,
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen[900],
         title: Text(data.title + " Battery"),
       ),
       body: Column(
