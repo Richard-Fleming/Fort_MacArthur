@@ -13,7 +13,7 @@ class CustomCards extends StatelessWidget {
       required this.subtitle,
       required this.imgSrc,
       required this.desc,
-      this.icon,
+      required this.icon,
       required this.action,
       required this.buttonRoute})
       : super(key: key);
