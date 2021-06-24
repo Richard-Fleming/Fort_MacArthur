@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fort_macarthur/device.dart';
 import 'device.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'sizeConstraints.dart';
+import 'customCards.dart';
 
 class FilmLocCredits extends StatefulWidget {
   @override
@@ -32,64 +34,84 @@ class _FilmLocCreditsState extends State<FilmLocCredits> {
                 fontFamily: "Futura"),
           ),
         ),
-        body: ListView(children: [
-          createText("Movies", 20.0, FontWeight.bold, Colors.black),
-          Divider(height: 25.0, thickness: 2.5, color: Colors.black),
-          createLink("A Few Good Men", "http://youtu.be/4AC0wWxadvc", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Dragnet", "http://youtu.be/YNiFahsAwJA", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Pearl Harbor", "http://youtu.be/Xr6pVUv9cJQ", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Cats & Dogs 2", "http://youtu.be/PrPaYUdz7Ks", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Private Benjamin", "http://youtu.be/5QtR-Hy0p0E", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink(
-              "Crash", "http://youtu.be/f1yXXGXhdkg", 20.0, FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("The Usual Suspects", "http://youtu.be/9MjV4EwR7Mg", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Don't Mess with the Zohan", "http://youtu.be/jmMXk0bA8gk",
-              20.0, FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink(
-              "Midway", "http://youtu.be/PJmw4xN3H6Q", 20.0, FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Tora! Tora! Tora!", "http://youtu.be/I56EnecvVZU", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Slaughterhouse Rock", "http://youtu.be/j05WkK8O3Vs", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Swing Shift", "http://youtu.be/3_q_ySU8nmo", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("MacArthur", "http://youtu.be/tesXvzIMWbQ", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Brothers War", "http://youtu.be/ETNmeeet41c", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Stage Door Canteen", "http://youtu.be/GJsSwMbWhGE", 20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink("Troopers Three", "http://www.imdb.com/title/tt0021491/",
-              20.0, FontWeight.normal),
-          Container(height: linkSpacing),
-          createLink(
-              "O'Hara, U.S. Treasury",
-              "http://en.wikipedia.org/wiki/O'Hara,_U.S._Treasury",
-              20.0,
-              FontWeight.normal),
-          Container(height: linkSpacing),
-        ]));
+        body: SingleChildScrollView(
+            child: SafeArea(
+                child: Container(
+                    padding: EdgeInsets.all(SizeConstraint.edgeInsets),
+                    child: Column(children: <Widget>[
+                      CustomCards(
+                          title: "A Few Good Men",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "Dragnet",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "Pearl Harbor",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "Cats & Dogs 2",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "Private Benjamin",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "Crash",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "The Usual Suspects",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                      CustomCards(
+                          title: "Don't Mess with the Zohan",
+                          subtitle: "Our Museum",
+                          imgSrc: "assets/images/frontpage.jpg",
+                          desc:
+                              "The Fort MacArthur Museum is dedicated to the preservation and interpretation of the history of Fort MacArthur, a U.S. Army post which guarded the Los Angeles harbor from 1914 to 1974. The Museum was established in 1985, and it is housed in the corridors and galleries of historic Battery Osgood-Farley. The Fort MacArthur Reservations hold an important collection of historical structures which were part of the U.S. Army's role in the defense of the American continental coastline from invasion. These structures clearly trace the development of American coastal defenses, from the all big gun era of the turn of the century to the missile era of today.\n\nThe rooms, galleries and corridors of the Museum contain a variety of exhibits and displays which include: the history of Los Angeles harbor defenses, home-front activities in the greater Los Angeles area during the World Wars, Civil Defense, American Pacific Theater military campaigns, early American Air Defenses and the important role of Los Angeles as a military port for both the Army and the Navy.",
+                          icon: Icon(Icons.movie),
+                          action: null,
+                          buttonRoute: null),
+                    ])))));
   }
 
   createText(text, fontSize, fontWeight, color) {

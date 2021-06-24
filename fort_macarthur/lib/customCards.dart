@@ -4,6 +4,7 @@ import 'sizeConstraints.dart';
 
 class CustomCards extends StatelessWidget {
   final String? title, subtitle, imgSrc, desc;
+  final Icon? icon;
   final Function()? action;
   final TextButton? buttonRoute;
   const CustomCards(
@@ -12,6 +13,7 @@ class CustomCards extends StatelessWidget {
       required this.subtitle,
       required this.imgSrc,
       required this.desc,
+      this.icon,
       required this.action,
       required this.buttonRoute})
       : super(key: key);
@@ -22,7 +24,7 @@ class CustomCards extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            leading: Icon(Icons.circle),
+            leading: icon!,
             title: Text(title!),
             subtitle: Text(
               subtitle!,
