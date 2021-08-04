@@ -38,7 +38,7 @@ class _VirtualToursState extends State<VirtualTours> {
             "contrast to many of the other modern era (post-1890) gun emplacements " +
             "around the nation, which have been gutted of all metal, " +
             "wiring and plumbing by the Army, humidity and vandals. Battery " +
-            "Osgood-Farley may be the best preserved example modern age coastal " +
+            "Osgood-Farley may be the best preserved vshp modern age coastal " +
             "defense gun emplacement in the United States today. The Army recognized " +
             "the historical significance of Battery Osgood-Farley and placed it " +
             "on the Register of National Historical Places in 1976. The Fort MacArthur " +

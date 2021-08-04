@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fort_macarthur">
+    package="com.vshp.fort_macarthur">
    <application
         android:label="fort_macarthur"
         android:icon="@mipmap/ic_launcher">
