@@ -7,6 +7,7 @@ import 'package:fort_macarthur/quizPage.dart';
 
 // Any imported dependencies
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fort_macarthur/slideshow.dart';
 
 class EducationPage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ List<String> des = [
   "The twin batteries Osgood and Farley have cemented their place in history.\nIf you want to show off to your friends how clever you are \nthis is the place to start !!",
 ];
 
-List imageList = [
+List osgoodImageList = [
   Slide(
     imagePath: "assets/images/Battery Osgood - Farley slides/Slide1.png",
   ),
@@ -36,7 +37,25 @@ List imageList = [
   ),
   Slide(
     imagePath: "assets/images/Battery Osgood - Farley slides/Slide5.png",
-  )
+  ),
+];
+
+List LearyImageList = [
+  Slide(
+    imagePath: "assets/images/Battery Leary-Merriam/Slide1.PNG",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Leary-Merriam/Slide2.PNG",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Leary-Merriam/Slide3.PNG",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Leary-Merriam/Slide4.PNG",
+  ),
+  Slide(
+    imagePath: "assets/images/Battery Leary-Merriam/Slide4.PNG",
+  ),
 ];
 
 class _EducationPageState extends State<EducationPage> {
@@ -133,8 +152,8 @@ Widget _sliderSlideDetails() {
 
   final List<EducateData> educationData = [
     EducateData(title: "Battery Osgood - Farley"),
-    /* EducateData(title: "Battery Leary Merriam"),
-    EducateData(title: "Battery Barlow - Saxton"),
+    EducateData(title: "Battery Leary Merriam"),
+    /*EducateData(title: "Battery Barlow - Saxton"),
     EducateData(title: "Battery Lodor"),
     EducateData(title: "Battery Erwin"),
     EducateData(title: "Battery Eubanks"),
@@ -167,6 +186,7 @@ Widget _sliderSlideDetails() {
               ),
               alignment: Alignment.topCenter,
             ),
+            // ! important
             Column(
               children: educationData
                   .map((data) => ListTileTheme(
@@ -188,31 +208,8 @@ Widget _sliderSlideDetails() {
                             ),
                           ),
                           children: [
-                            Card(
-                              child: CarouselSlider(
-                                options: CarouselOptions(
-                                  height: 300,
-                                  viewportFraction: 0.9,
-                                  autoPlay: false,
-                                  //enlargeCenterPage: true,
-                                ),
-                                items: imageList.map((image) {
-                                  return Builder(
-                                      builder: (BuildContext context) {
-                                    return Container(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.30,
-                                      width: MediaQuery.of(context).size.width,
-                                      child: Card(
-                                        color: Colors.blueAccent,
-                                        child: image,
-                                      ),
-                                    );
-                                  });
-                                }).toList(),
-                              ),
-                            ),
+                            Slideshow(imageList: osgoodImageList),
+                            Slideshow(imageList: LearyImageList)
                           ],
                         ),
                       ))
