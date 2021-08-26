@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fort_macarthur/device.dart';
 import 'package:fort_macarthur/sizeConstraints.dart';
+import 'package:fort_macarthur/projects_data.dart';
 
 class ProjectsPage extends StatefulWidget {
   @override
@@ -9,41 +10,42 @@ class ProjectsPage extends StatefulWidget {
 
 class _ProjectsPageState extends State<ProjectsPage> {
   final List<ProjectData> preservationData = [
-    ProjectData(title: "Fort MacArthur K9 Cementary", desc: "testing"),
     ProjectData(
-        title: "Hey Rookie (Gaffey Street) Pool", desc: "testing some more"),
+        title: "Fort MacArthur K9 Cementary", desc: preservationDesc[0]),
+    ProjectData(
+        title: "Hey Rookie (Gaffey Street) Pool", desc: preservationDesc[1]),
     ProjectData(
         title: "Upper Reservation Barracks Structures",
-        desc: "testing some more"),
+        desc: preservationDesc[2]),
     ProjectData(
         title: "Incredible Shrinking National Register Site",
-        desc: "testing some more"),
-    ProjectData(title: "Whites Point Preservation", desc: "testing some more"),
+        desc: preservationDesc[3]),
+    ProjectData(title: "Whites Point Preservation", desc: preservationDesc[4]),
     ProjectData(
-        title: "Fire Control Stations Preservation", desc: "testing some more"),
+        title: "Fire Control Stations Preservation", desc: preservationDesc[5]),
     ProjectData(
-        title: "Bolsa Chica Beach Panama Mounts", desc: "testing some more")
+        title: "Bolsa Chica Beach Panama Mounts", desc: preservationDesc[6])
   ];
 
   final List<ProjectData> restorationData = [
     ProjectData(
-        title: "60 inch General Electric Searchlight Project", desc: "testing"),
+        title: "60 inch General Electric Searchlight Project",
+        desc: restorationDesc[0]),
     ProjectData(
-        title: "Time-Interval Bell for the Gun Pit", desc: "testing some more"),
+        title: "Time-Interval Bell for the Gun Pit", desc: restorationDesc[1]),
     ProjectData(
-        title: "60 inch Sperry Searchlight Project", desc: "testing some more"),
+        title: "60 inch Sperry Searchlight Project", desc: restorationDesc[2]),
     ProjectData(
-        title: "Battery Window Replacement Project", desc: "testing some more"),
+        title: "Battery Window Replacement Project", desc: restorationDesc[3]),
   ];
 
   final List<ProjectData> wishlistData = [
-    ProjectData(title: "Infrastructure Improvement", desc: "testing"),
-    ProjectData(title: "Restoration Shop Tools", desc: "testing some more"),
-    ProjectData(title: "Archival Supplies", desc: "testing some more"),
-    ProjectData(title: "Office Equipment", desc: "testing some more"),
-    ProjectData(
-        title: "Motor Vehicles and Transportation", desc: "testing some more"),
-    ProjectData(title: "Special Event Supplies", desc: "testing some more"),
+    ProjectData(title: "Infrastructure Improvement", desc: wishlistDesc),
+    ProjectData(title: "Restoration Shop Tools", desc: wishlistDesc),
+    ProjectData(title: "Archival Supplies", desc: wishlistDesc),
+    ProjectData(title: "Office Equipment", desc: wishlistDesc),
+    ProjectData(title: "Motor Vehicles and Transportation", desc: wishlistDesc),
+    ProjectData(title: "Special Event Supplies", desc: wishlistDesc),
   ];
 
   Color _textColor = Colors.black;
