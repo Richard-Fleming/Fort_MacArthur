@@ -1,10 +1,10 @@
 [
     {
-        "0": "Which of these time frames was Fort MacArthur created during ?",
-        "1": "How big was each gun at this battery ?",
-        "2": "How many times was Battery Osgood's gun fired total ?",
-        "3": "How many times was Battery Farley's gun fired total ?",
-        "4": "By what time period had the batterys guns become obsolete ?",
+        "0": "Which of these time frames was Battery Leary - Merriam constructed during ?",
+        "1": "How heavy were the projectiles shot by the battery ?",
+        "2": "What special ability did the battery's guns have ?",
+        "3": "In what year was the battery last used ?",
+        "4": "How big are the battery guns ?",
         "5": "In what year were the twin guns declared surplus ?",
         "6": "Against what were disappearing guns considered effective ?",
         "7": "How heavy was the ammunition used by both batteries ?",
@@ -14,33 +14,33 @@
     {
         "0": {
             "a": "1916-1919",
-            "b": "1914-1917",
-            "c": "1920-1923",
-            "d": "1911-1914"
+            "b": "1915-1920",
+            "c": "1914-1917",
+            "d": "1912-1916"
         },
         "1": {
-            "a": "17 inches",
-            "b": "16 inches",
-            "c": "15 inches",
-            "d": "14 inches"
+            "a": "960 pounds",
+            "b": "1620 pounds",
+            "c": "1560 pounds",
+            "d": "1780 pounds"
         },
         "2": {
-            "a": "134",
-            "b": "122",
-            "c": "116",
-            "d": "108"
+            "a": "ability to set objects on fire",
+            "b": "ability to shoot silently",
+            "c": "ability to shoot extremly far",
+            "d": "ability to disappear"
         },
         "3": {
-            "a": "121",
-            "b": "143",
-            "c": "113",
-            "d": "131"
+            "a": "1954",
+            "b": "1969",
+            "c": "1976",
+            "d": "1961"
         },
         "4": {
-            "a": "mid-1930s",
-            "b": "mid 1910s",
-            "c": "mid 1950s",
-            "d": "mid 1920s"
+            "a": "14 inches",
+            "b": "16 inches",
+            "c": "12 inches",
+            "d": "17 inches"
         },
         "5": {
             "a": "1940",
