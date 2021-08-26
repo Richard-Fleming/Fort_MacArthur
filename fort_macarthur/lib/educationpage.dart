@@ -15,10 +15,14 @@ class EducationPage extends StatefulWidget {
 
 List<String> images = [
   "assets/images/battery/batteryOsgood.jpg",
+  "assets/images/battery/Leary.jpg",
+  "assets/images/battery/SaxtonGun.jpg",
 ];
 
 List<String> des = [
   "The twin batteries Osgood and Farley have cemented their place in history.\nIf you want to show off to your friends how clever you are \nthis is the place to start !!",
+  "Battery Leary has cemented its place in history.\nIf you want to show off to your friends how clever you are \nthis is the place to start !!",
+  "Battery Saxton has cemented its place in history.\nIf you want to show off to your friends how clever you are \nthis is the place to start !!",
 ];
 
 List imageList = [
@@ -132,13 +136,29 @@ Widget _sliderSlideDetails() {
   Color _textColor = Colors.black;
 
   final List<EducateData> educationData = [
-    EducateData(title: "Battery Osgood - Farley"),
-    /* EducateData(title: "Battery Leary Merriam"),
-    EducateData(title: "Battery Barlow - Saxton"),
-    EducateData(title: "Battery Lodor"),
-    EducateData(title: "Battery Erwin"),
-    EducateData(title: "Battery Eubanks"),
-    EducateData(title: "Battery 127 (Paul D Bunker)") */
+    EducateData(
+      title: "Battery Osgood - Farley",
+      image: images[0],
+      des: des[0],
+    ),
+    EducateData(
+      title: "Battery Leary - Merriam",
+      image: images[1],
+      des: des[1],
+    ),
+    EducateData(
+      title: "Battery Barlow - Saxton",
+      image: images[2],
+      des: des[2],
+    ),
+    // EducateData(title: "Battery Lodor"),
+    // EducateData(title: "Battery Erwin"),
+    // EducateData(title: "Battery Eubanks"),
+    // EducateData(title: "Battery 127 (Paul D Bunker)"),
+    // EducateData(title: "Battery 128"),
+    // EducateData(title: "Battery 240 (Harry C. Barnes)"),
+    // EducateData(title: "Battery 241"),
+    // EducateData(title: "Battery 242 (Harry J. Harrison)"),
   ];
 
   /* List<T> map<T>(List list, Function handler) {
@@ -251,8 +271,8 @@ Widget _sliderSlideDetails() {
                             ),
                           ),
                           children: [
-                            customcard("Battery Osgood - Farley", images[0],
-                                des[0], context),
+                            customcard(
+                                data.title, data.image, data.des, context),
                           ],
                         ),
                       ))
@@ -299,6 +319,12 @@ class Slide extends StatelessWidget {
 
 class EducateData {
   String title;
+  String des;
+  String image;
 
-  EducateData({required this.title});
+  EducateData({
+    required this.title,
+    required this.des,
+    required this.image,
+  });
 }
